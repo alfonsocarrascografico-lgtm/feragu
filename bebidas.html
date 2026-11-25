@@ -75,10 +75,11 @@
 
     .card { background: var(--surface); border-radius: var(--radius-md); border: 1px solid var(--border); overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); }
     .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--accent); }
-    .card-img { position: relative; height: 190px; background: linear-gradient(145deg, #FFF7ED 0%, #FFEDD5 100%); display: flex; align-items: center; justify-content: center; padding: 1rem; border-bottom: 1px solid var(--border); }
-    .placeholder-graphic { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; color: var(--accent-dark); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; }
-    .badge-top { position: absolute; top: 0.7rem; left: 0.7rem; padding: 0.22rem 0.6rem; border-radius: 999px; background: #fff; color: var(--accent-dark); font-size: 0.68rem; font-weight: 800; text-transform: uppercase; }
-    .tag-pack { position: absolute; top: 0.7rem; right: 0.7rem; padding: 0.22rem 0.58rem; border-radius: 8px; background: var(--charcoal); color: #fff; font-size: 0.72rem; font-weight: 800; }
+    .card-img { position: relative; height: 215px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 1.15rem 1rem 0.95rem; border-bottom: 1px solid var(--border); }
+    .card-img img { width: 100%; height: 100%; max-height: 185px; object-fit: contain; object-position: center; transition: transform 0.35s var(--transition); }
+    .card:hover .card-img img { transform: scale(1.04); }
+    .badge-top { position: absolute; top: 0.7rem; left: 0.7rem; z-index: 2; padding: 0.22rem 0.6rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent-dark); font-size: 0.68rem; font-weight: 800; text-transform: uppercase; }
+    .tag-pack { position: absolute; top: 0.7rem; right: 0.7rem; z-index: 2; padding: 0.22rem 0.58rem; border-radius: 8px; background: var(--charcoal); color: #fff; font-size: 0.72rem; font-weight: 800; }
 
     .card-body { padding: 1.2rem; display: flex; flex-direction: column; flex: 1; }
     .subcat { font-size: 0.72rem; font-weight: 700; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
@@ -140,10 +141,10 @@
     <div class="container">
       <div class="toolbar">
         <div class="filter-pills">
-          <button class="filter-btn active" data-filter="all">Todos</button>
-          <button class="filter-btn" data-filter="latas">Cervezas en Lata</button>
-          <button class="filter-btn" data-filter="botellas">Cervezas en Botella / Retornable</button>
-          <button class="filter-btn" data-filter="complementos">Complementos</button>
+          <button class="filter-btn active" data-filter="all">Todos (8)</button>
+          <button class="filter-btn" data-filter="latas">Latas</button>
+          <button class="filter-btn" data-filter="botellas">Botellas</button>
+          <button class="filter-btn" data-filter="packs">Packs y Sixpacks</button>
         </div>
         <div class="search-box">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -186,10 +187,86 @@
   <script>
     const WHATSAPP_NUMBER = "59899000000";
     const ITEMS = [
-      { id: "beb-cerveza-lata-473-pack6", name: "Cerveza Rubia Lata", size: "473 ml x6", cat: "latas", subcat: "Cervezas en Lata", badge: "Foco Principal", desc: "Presentación práctica en six-pack, ideal para almacenes, kioscos y eventos." },
-      { id: "beb-cerveza-lata-354-pack24", name: "Cerveza Lata Bandeja", size: "354 ml x24", cat: "latas", subcat: "Cervezas en Lata", badge: "Formato Mayorista", desc: "Bandeja cerrada pensada para reposición ágil y máxima rotación." },
-      { id: "beb-cerveza-botella-1l", name: "Cerveza Botella", size: "1 Litro", cat: "botellas", subcat: "Cervezas en Botella", badge: "Clásica", desc: "Formato familiar y gastronómico ideal para acompañar comidas y reuniones." },
-      { id: "beb-aguas-refrescos-pack", name: "Bebidas Refrescantes / Aguas", size: "Pack", cat: "complementos", subcat: "Complementos", badge: "Acompañamiento", desc: "Opciones complementarias para completar el surtido de tu negocio o evento." }
+      {
+        id: "estrella-galicia-lager-botella-355ml",
+        name: "Estrella Galicia Lager Botella",
+        size: "355 ml",
+        cat: "botellas",
+        subcat: "Estrella Galicia • Botellas",
+        badge: "Puro Malte",
+        desc: "Cerveza Lager puro malte en botella de 355 ml, equilibrada y refrescante para mesa o barra.",
+        image: "img/estrella_galicia_botella.jpeg"
+      },
+      {
+        id: "estrella-galicia-00-botella-330ml",
+        name: "Estrella Galicia 0,0 Botella",
+        size: "330 ml",
+        cat: "botellas",
+        subcat: "Estrella Galicia • Sin Alcohol",
+        badge: "Alc. 0,0% vol",
+        desc: "Cerveza Estrella Galicia 0,0% en botella de 330 ml, con el sabor clásico sin graduación alcohólica.",
+        image: "img/estrella_galicia_botella_00.jpeg"
+      },
+      {
+        id: "estrella-galicia-lager-lata-350ml",
+        name: "Estrella Galicia Lager Lata",
+        size: "350 ml",
+        cat: "latas",
+        subcat: "Estrella Galicia • Latas",
+        badge: "Puro Malte",
+        desc: "Cerveza Lager puro malte en lata de 350 ml, práctica para frío rápido y consumo individual.",
+        image: "img/estrella_galicia_lata.jpeg"
+      },
+      {
+        id: "estrella-galicia-00-lata-350ml",
+        name: "Estrella Galicia 0,0 Lata",
+        size: "350 ml",
+        cat: "latas",
+        subcat: "Estrella Galicia • Sin Alcohol",
+        badge: "Alc. 0,0% vol",
+        desc: "Versión sin alcohol en lata de 350 ml, ideal para complementar opciones en comercios y eventos.",
+        image: "img/estrella_galicia_lata_00.jpg"
+      },
+      {
+        id: "estrella-galicia-lager-pack12-473ml",
+        name: "Estrella Galicia Lager Pack x12 Latas",
+        size: "473 ml x12",
+        cat: "packs",
+        subcat: "Estrella Galicia • Pack Mayorista",
+        badge: "Pack x12 • 473 ml",
+        desc: "Pack de 12 latas de 473 ml de cerveza Lager puro malte, pensado para reposición comercial o eventos.",
+        image: "img/estrella_galicia_lata_x12.jpeg"
+      },
+      {
+        id: "smith-44-lager-botella-330ml",
+        name: "Smith 44 Lager Botella",
+        size: "330 ml",
+        cat: "botellas",
+        subcat: "Smith 44 • Botellas",
+        badge: "Puro Malte",
+        desc: "Cerveza Lager puro malte en botella verde de 330 ml elaborada con maltas importadas.",
+        image: "img/smith_44_botella.jpg"
+      },
+      {
+        id: "smith-44-lager-lata-473ml",
+        name: "Smith 44 Lager Lata",
+        size: "473 ml",
+        cat: "latas",
+        subcat: "Smith 44 • Latas",
+        badge: "Lata 473 ml",
+        desc: "Cerveza Smith 44 Lager puro malte en lata de 473 ml, lista para enfriar y despachar.",
+        image: "img/smith_44_lata.jpeg"
+      },
+      {
+        id: "smith-44-lager-sixpack-330ml",
+        name: "Smith 44 Lager Sixpack Botellas",
+        size: "330 ml x6",
+        cat: "packs",
+        subcat: "Smith 44 • Sixpack",
+        badge: "Sixpack x6",
+        desc: "Sixpack de 6 botellas de 330 ml de Smith 44 Lager puro malte, ideal para góndola o llevar.",
+        image: "img/smith_44_sixpack.jpg"
+      }
     ];
 
     let cart = JSON.parse(localStorage.getItem("feragu_quote_cart") || "[]");
@@ -200,7 +277,10 @@
       const list = ITEMS.filter(i => {
         const okCat = activeCat === "all" || i.cat === activeCat;
         const q = queryText.toLowerCase().trim();
-        const okQ = !q || i.name.toLowerCase().includes(q) || i.desc.toLowerCase().includes(q);
+        const okQ = !q ||
+          i.name.toLowerCase().includes(q) ||
+          i.size.toLowerCase().includes(q) ||
+          i.desc.toLowerCase().includes(q);
         return okCat && okQ;
       });
 
@@ -211,10 +291,7 @@
             <div class="card-img">
               <span class="badge-top">${item.badge}</span>
               <span class="tag-pack">${item.size}</span>
-              <div class="placeholder-graphic">
-                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/></svg>
-                <span>Foto del rubro</span>
-              </div>
+              <img src="${item.image}" alt="${item.name} ${item.size}" loading="lazy" />
             </div>
             <div class="card-body">
               <div class="subcat">${item.subcat}</div>
@@ -243,7 +320,7 @@
       else cart.push({ id: prod.id, name: prod.name, size: prod.size, qty: 1 });
       saveAndRefresh();
       const t = document.getElementById("toast");
-      t.textContent = `Agregado: ${prod.name}`;
+      t.textContent = `Agregado: ${prod.name} (${prod.size})`;
       t.classList.add("show");
       setTimeout(() => t.classList.remove("show"), 2200);
     }

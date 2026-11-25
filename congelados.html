@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Congelados | Feragu Distribuciones</title>
+  <title>Alimentos Congelados | Feragu Distribuciones</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --accent: #0EA5E9;
+      --accent: #0284C7;
       --accent-dark: #0369A1;
-      --accent-soft: #E0F2FE;
+      --accent-soft: #F0F9FF;
       --green: #699C3B;
       --green-dark: #4B7427;
       --green-soft: #F1F8EA;
@@ -22,6 +22,7 @@
       --surface: #FFFFFF;
       --border: #E5E7EB;
       --radius-md: 16px;
+      --radius-lg: 24px;
       --shadow-sm: 0 4px 14px rgba(17, 24, 39, 0.05);
       --shadow-md: 0 12px 30px rgba(17, 24, 39, 0.08);
       --transition: 0.25s cubic-bezier(0.22, 1, 0.36, 1);
@@ -37,6 +38,7 @@
 
     .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.25rem; }
 
+    /* Navbar */
     .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
     .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; gap: 1rem; }
     .brand-lockup { display: flex; align-items: center; gap: 0.7rem; white-space: nowrap; }
@@ -47,10 +49,12 @@
     .nav-actions { display: flex; align-items: center; gap: 0.65rem; }
     .btn-back { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.55rem 0.95rem; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); font-size: 0.84rem; font-weight: 700; color: var(--charcoal); white-space: nowrap; transition: all var(--transition); }
     .btn-back:hover { border-color: var(--accent); color: var(--accent-dark); background: var(--accent-soft); }
+
     .btn-quote-badge { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.55rem 0.9rem; border-radius: 999px; background: var(--green-soft); color: var(--green-dark); font-weight: 700; font-size: 0.84rem; white-space: nowrap; transition: all var(--transition); }
     .btn-quote-badge:hover { background: var(--green); color: #fff; }
     .quote-count { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 0.72rem; font-weight: 800; }
 
+    /* Hero & Gallery */
     .gallery-hero { padding-top: 5.75rem; padding-bottom: 2.25rem; background: linear-gradient(180deg, #FFFFFF 0%, var(--bg) 100%); border-bottom: 1px solid var(--border); }
     .kicker { display: inline-block; padding: 0.25rem 0.7rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent-dark); font-family: 'Montserrat', sans-serif; font-size: 0.74rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.65rem; }
     .gallery-hero h1 { font-size: clamp(1.85rem, 3.6vw, 2.75rem); font-weight: 900; color: var(--charcoal); text-transform: uppercase; margin-bottom: 0.55rem; }
@@ -75,10 +79,11 @@
 
     .card { background: var(--surface); border-radius: var(--radius-md); border: 1px solid var(--border); overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); }
     .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--accent); }
-    .card-img { position: relative; height: 190px; background: linear-gradient(145deg, #F0F9FF 0%, #E0F2FE 100%); display: flex; align-items: center; justify-content: center; padding: 1rem; border-bottom: 1px solid var(--border); }
-    .placeholder-graphic { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; color: var(--accent-dark); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; }
-    .badge-top { position: absolute; top: 0.7rem; left: 0.7rem; padding: 0.22rem 0.6rem; border-radius: 999px; background: #fff; color: var(--accent-dark); font-size: 0.68rem; font-weight: 800; text-transform: uppercase; }
-    .tag-pack { position: absolute; top: 0.7rem; right: 0.7rem; padding: 0.22rem 0.58rem; border-radius: 8px; background: var(--charcoal); color: #fff; font-size: 0.72rem; font-weight: 800; }
+    .card-img { position: relative; height: 215px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 1.15rem 1rem 0.95rem; border-bottom: 1px solid var(--border); }
+    .card-img img { width: 100%; height: 100%; max-height: 185px; object-fit: contain; object-position: center; transition: transform 0.35s var(--transition); }
+    .card:hover .card-img img { transform: scale(1.04); }
+    .badge-top { position: absolute; top: 0.7rem; left: 0.7rem; z-index: 2; padding: 0.22rem 0.6rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent-dark); font-size: 0.68rem; font-weight: 800; text-transform: uppercase; }
+    .tag-pack { position: absolute; top: 0.7rem; right: 0.7rem; z-index: 2; padding: 0.22rem 0.58rem; border-radius: 8px; background: var(--charcoal); color: #fff; font-size: 0.72rem; font-weight: 800; }
 
     .card-body { padding: 1.2rem; display: flex; flex-direction: column; flex: 1; }
     .subcat { font-size: 0.72rem; font-weight: 700; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
@@ -89,6 +94,7 @@
     .btn-add:hover { background: var(--accent-dark); }
     .btn-add.added { background: var(--charcoal); }
 
+    /* Drawer & Footer */
     .drawer-backdrop { position: fixed; inset: 0; background: rgba(17,24,39,0.55); z-index: 1200; opacity: 0; pointer-events: none; transition: opacity 0.25s; }
     .drawer-backdrop.open { opacity: 1; pointer-events: auto; }
     .quote-drawer { position: fixed; top: 0; right: 0; bottom: 0; width: 100%; max-width: 410px; background: var(--surface); z-index: 1300; display: flex; flex-direction: column; transform: translateX(100%); transition: transform 0.3s cubic-bezier(0.22,1,0.36,1); }
@@ -115,7 +121,7 @@
       <a href="index.html" class="brand-lockup">
         <img src="img/logo_feragu.png" alt="Logo Feragu Distribuciones" class="brand-logo-img" />
         <div class="brand-divider"></div>
-        <span class="rubro-pill-nav">Congelados</span>
+        <span class="rubro-pill-nav">Alimentos Congelados</span>
       </a>
       <div class="nav-actions">
         <a href="index.html#multirrubro" class="btn-back">← Volver a Inicio</a>
@@ -130,9 +136,9 @@
   <div class="gallery-hero">
     <div class="container">
       <span class="kicker">Feragu Distribuciones • Cadena de Frío</span>
-      <h1>Congelados</h1>
+      <h1>Alimentos Congelados</h1>
       <div class="accent-line"></div>
-      <p>Opciones congeladas prácticas y de alta rotación para el día a día en el hogar, comercios de cercanía, rotiserías y locales gastronómicos.</p>
+      <p>Papas prefritas congeladas y rebozados de pollo listos para cocinar, ideales para comercios, gastronomía, rotiserías y consumo familiar.</p>
     </div>
   </div>
 
@@ -140,14 +146,13 @@
     <div class="container">
       <div class="toolbar">
         <div class="filter-pills">
-          <button class="filter-btn active" data-filter="all">Todos</button>
-          <button class="filter-btn" data-filter="papas">Papas y Vegetales</button>
-          <button class="filter-btn" data-filter="rebozados">Rebozados y Cortes</button>
-          <button class="filter-btn" data-filter="comidas">Soluciones Listas</button>
+          <button class="filter-btn active" data-filter="all">Todos (8)</button>
+          <button class="filter-btn" data-filter="papas">Papas Congeladas</button>
+          <button class="filter-btn" data-filter="pollo">Rebozados de Pollo</button>
         </div>
         <div class="search-box">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input type="text" id="searchInput" placeholder="Buscar producto congelado..." />
+          <input type="text" id="searchInput" placeholder="Buscar papas, nuggets o rebozados..." />
         </div>
       </div>
 
@@ -159,9 +164,9 @@
     <div class="container footer-inner">
       <div style="display:flex; align-items:center; gap:0.9rem;">
         <div class="footer-logo-box"><img src="img/logo_feragu.png" alt="Feragu" /></div>
-        <span style="font-size:0.85rem; color:rgba(255,255,255,0.82);">Feragu Distribuciones • Congelados</span>
+        <span style="font-size:0.85rem; color:rgba(255,255,255,0.82);">Feragu Distribuciones • Alimentos Congelados</span>
       </div>
-      <a href="index.html#contacto" style="font-size:0.85rem; font-weight:700; color:#8FD158;">Consultar disponibilidad y entregas →</a>
+      <a href="index.html#contacto" style="font-size:0.85rem; font-weight:700; color:#8FD158;">Consultar cotización mayorista →</a>
     </div>
   </footer>
 
@@ -186,10 +191,86 @@
   <script>
     const WHATSAPP_NUMBER = "59899000000";
     const ITEMS = [
-      { id: "cong-papas-2500", name: "Papas Bastón Prefritas", size: "2.5 kg", cat: "papas", subcat: "Papas y Vegetales", badge: "Alta Rotación", desc: "Cocción pareja y crocante por fuera; ideal para hogar y servicio gastronómico." },
-      { id: "cong-mix-vegetales-1kg", name: "Mix de Vegetales Congelados", size: "1 kg", cat: "papas", subcat: "Papas y Vegetales", badge: "Listo para Usar", desc: "Ahorra tiempo de preparación en salteados, guarniciones y sopas." },
-      { id: "cong-medallones-pack", name: "Medallones / Rebozados", size: "Bolsa 1 kg", cat: "rebozados", subcat: "Rebozados y Cortes", badge: "Rápido", desc: "Formato práctico para resolver almuerzos o cenas con excelente rendimiento." },
-      { id: "cong-tarta-familiar", name: "Tarta / Comida Lista Congelada", size: "Unidad", cat: "comidas", subcat: "Soluciones Listas", badge: "Práctico", desc: "Resolución rápida al horno o freidora con calidad constante." }
+      {
+        id: "sadia-chicken-fingers-720g",
+        name: "Sadia Chicken Fingers",
+        size: "720 g",
+        cat: "pollo",
+        subcat: "Sadia • Rebozados de Pollo",
+        badge: "Mega Formato",
+        desc: "Tiras de carne de pollo molido condimentadas, rebozadas, cocidas y congeladas en bolsa de 720 g.",
+        image: "img/chicken-fingers-uy.png"
+      },
+      {
+        id: "mccain-clasicas-tradicional-700g",
+        name: "McCain Clásicas Corte Tradicional",
+        size: "700 g",
+        cat: "papas",
+        subcat: "McCain • Papas Congeladas",
+        badge: "Sin T.A.C.C.",
+        desc: "Papas prefritas bastón supercongeladas de corte tradicional en bolsa de 700 g, libres de gluten.",
+        image: "img/Clasicas_Trad.png"
+      },
+      {
+        id: "sadia-golden-chicken-tradicional-700g",
+        name: "Sadia Golden Chicken Tradicional",
+        size: "700 g",
+        cat: "pollo",
+        subcat: "Sadia • Rebozados de Pollo",
+        badge: "100% Pechugas",
+        desc: "Bocaditos de pechuga de pollo condimentados, rebozados, cocidos y congelados sabor tradicional de 700 g.",
+        image: "img/golden-chicken-tradicional.png"
+      },
+      {
+        id: "mccain-clasicas-con-onda-750g",
+        name: "McCain Clásicas Con Onda",
+        size: "750 g",
+        cat: "papas",
+        subcat: "McCain • Papas Congeladas",
+        badge: "Corte Ondulado",
+        desc: "Papas congeladas a la francesa con corte ondulado en bolsa de 750 g, ideales para acompañar comidas o picadas.",
+        image: "img/mccain-con-onda-corte-ondulado-750g.png"
+      },
+      {
+        id: "mccain-super-crujientes-750g",
+        name: "McCain Horneables Súper Crujientes",
+        size: "750 g",
+        cat: "papas",
+        subcat: "McCain • Papas Congeladas",
+        badge: "Sazonadas Paprika",
+        desc: "Papas congeladas horneables sazonadas con paprika en presentación de 750 g, pensadas para quedar bien crujientes.",
+        image: "img/mccain-super-crujientes-750g.png"
+      },
+      {
+        id: "mccain-gourmet-crispers-600g",
+        name: "McCain Gourmet Crispers",
+        size: "600 g",
+        cat: "papas",
+        subcat: "McCain • Papas Congeladas",
+        badge: "Con Piel • Sin Gluten",
+        desc: "Papas con piel prefritas supercongeladas gourmet en bolsa de 600 g, libres de gluten.",
+        image: "img/NUEVOS_0000_TRUCA-MC-CAIN-CRISPERS.png"
+      },
+      {
+        id: "sadia-nuggets-crocantes-pollo-900g",
+        name: "Sadia Nuggets de Pollo Crocante",
+        size: "900 g",
+        cat: "pollo",
+        subcat: "Sadia • Rebozados de Pollo",
+        badge: "Formato 900 g",
+        desc: "Nuggets de carne y piel de pollo molido condimentados, rebozados, cocidos y congelados en bolsa de 900 g.",
+        image: "img/nuggets-crocantes-de-pollo-uy.png"
+      },
+      {
+        id: "sadia-rebozado-de-pollo-100g",
+        name: "Sadia Rebozado de Pollo",
+        size: "100 g",
+        cat: "pollo",
+        subcat: "Sadia • Rebozados de Pollo",
+        badge: "Porción 100 g",
+        desc: "Rebozado de pollo cocido y congelado con proteína de soja en presentación de 100 g, práctico para platos rápidos.",
+        image: "img/rebozado-de-pollo.png"
+      }
     ];
 
     let cart = JSON.parse(localStorage.getItem("feragu_quote_cart") || "[]");
@@ -200,7 +281,10 @@
       const list = ITEMS.filter(i => {
         const okCat = activeCat === "all" || i.cat === activeCat;
         const q = queryText.toLowerCase().trim();
-        const okQ = !q || i.name.toLowerCase().includes(q) || i.desc.toLowerCase().includes(q);
+        const okQ = !q ||
+          i.name.toLowerCase().includes(q) ||
+          i.size.toLowerCase().includes(q) ||
+          i.desc.toLowerCase().includes(q);
         return okCat && okQ;
       });
 
@@ -211,10 +295,7 @@
             <div class="card-img">
               <span class="badge-top">${item.badge}</span>
               <span class="tag-pack">${item.size}</span>
-              <div class="placeholder-graphic">
-                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="2" x2="12" y2="22"/><path d="M20 16l-4-4 4-4"/><path d="M4 8l4 4-4 4"/></svg>
-                <span>Foto del rubro</span>
-              </div>
+              <img src="${item.image}" alt="${item.name} ${item.size}" loading="lazy" />
             </div>
             <div class="card-body">
               <div class="subcat">${item.subcat}</div>
@@ -243,7 +324,7 @@
       else cart.push({ id: prod.id, name: prod.name, size: prod.size, qty: 1 });
       saveAndRefresh();
       const t = document.getElementById("toast");
-      t.textContent = `Agregado: ${prod.name}`;
+      t.textContent = `Agregado: ${prod.name} (${prod.size})`;
       t.classList.add("show");
       setTimeout(() => t.classList.remove("show"), 2200);
     }
@@ -294,7 +375,7 @@
     document.getElementById("clearBtn").addEventListener("click", () => { cart = []; saveAndRefresh(); });
     document.getElementById("sendWaBtn").addEventListener("click", () => {
       let msg = "Hola Feragu Distribuciones! Quisiera cotizar:\n\n";
-      if (!cart.length) msg = "Hola Feragu Distribuciones! Quisiera consultar por Congelados.";
+      if (!cart.length) msg = "Hola Feragu Distribuciones! Quisiera consultar por Alimentos Congelados.";
       else msg += cart.map(i => `• ${i.name} (${i.size}) x ${i.qty} un.`).join("\n");
       window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
     });

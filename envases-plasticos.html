@@ -79,11 +79,11 @@
 
     .card { background: var(--surface); border-radius: var(--radius-md); border: 1px solid var(--border); overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); }
     .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--accent); }
-    .card-img { position: relative; height: 190px; background: linear-gradient(145deg, #FAFAFA 0%, #EFEFEF 100%); display: flex; align-items: center; justify-content: center; padding: 1rem; border-bottom: 1px solid var(--border); }
-    .card-img img { max-height: 150px; object-fit: contain; }
-    .placeholder-graphic { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; color: var(--accent); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; }
-    .badge-top { position: absolute; top: 0.7rem; left: 0.7rem; padding: 0.22rem 0.6rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent-dark); font-size: 0.68rem; font-weight: 800; text-transform: uppercase; }
-    .tag-pack { position: absolute; top: 0.7rem; right: 0.7rem; padding: 0.22rem 0.58rem; border-radius: 8px; background: var(--charcoal); color: #fff; font-size: 0.72rem; font-weight: 800; }
+    .card-img { position: relative; height: 215px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 1.15rem 1rem 0.95rem; border-bottom: 1px solid var(--border); }
+    .card-img img { width: 100%; height: 100%; max-height: 185px; object-fit: contain; object-position: center; transition: transform 0.35s var(--transition); }
+    .card:hover .card-img img { transform: scale(1.04); }
+    .badge-top { position: absolute; top: 0.7rem; left: 0.7rem; z-index: 2; padding: 0.22rem 0.6rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent-dark); font-size: 0.68rem; font-weight: 800; text-transform: uppercase; }
+    .tag-pack { position: absolute; top: 0.7rem; right: 0.7rem; z-index: 2; padding: 0.22rem 0.58rem; border-radius: 8px; background: var(--charcoal); color: #fff; font-size: 0.72rem; font-weight: 800; }
 
     .card-body { padding: 1.2rem; display: flex; flex-direction: column; flex: 1; }
     .subcat { font-size: 0.72rem; font-weight: 700; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
@@ -138,7 +138,7 @@
       <span class="kicker">Feragu Distribuciones • Línea Multirrubro</span>
       <h1>Envases y Plásticos</h1>
       <div class="accent-line"></div>
-      <p>Tuppers herméticos, potes, contenedores organizadores y envases plásticos prácticos para el hogar, comercios y gastronomía. Sumá ítems a tu pedido unificado.</p>
+      <p>Contenedores apilables, potes con tapa, tuppers herméticos y viandas con divisiones para el hogar, comercios y gastronomía. Sumá ítems a tu pedido unificado.</p>
     </div>
   </div>
 
@@ -146,10 +146,9 @@
     <div class="container">
       <div class="toolbar">
         <div class="filter-pills">
-          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn active" data-filter="all">Todos (4)</button>
           <button class="filter-btn" data-filter="tuppers">Tuppers y Viandas</button>
           <button class="filter-btn" data-filter="potes">Potes y Contenedores</button>
-          <button class="filter-btn" data-filter="organizacion">Organización</button>
         </div>
         <div class="search-box">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -192,10 +191,46 @@
   <script>
     const WHATSAPP_NUMBER = "59899000000";
     const ITEMS = [
-      { id: "env-tupper-rect-1200", name: "Tupper Hermético Rectangular", size: "1.2 L", cat: "tuppers", subcat: "Tuppers y Viandas", badge: "Cierre Seguro", desc: "Ideal para conservas en heladera, comidas preparadas y traslado diario." },
-      { id: "env-vianda-divisiones", name: "Vianda con Divisiones", size: "Pack x3", cat: "tuppers", subcat: "Tuppers y Viandas", badge: "Práctico", desc: "Separa porciones sin mezclar sabores; apto freezer y microondas según modelo." },
-      { id: "env-pote-redondo-500", name: "Pote Plástico Redondo con Tapa", size: "500 cc", cat: "potes", subcat: "Potes y Contenedores", badge: "Alta Rotación", desc: "Versátil para rotiserías, fiambrerías, almacenes y fraccionamiento." },
-      { id: "env-contenedor-alto-3l", name: "Contenedor Alto Alacena", size: "3 L", cat: "organizacion", subcat: "Organización", badge: "Ahorra Espacio", desc: "Apilable y transparente para visualizar el contenido de un vistazo." }
+      {
+        id: "contenedor-alto-alacena",
+        name: "Contenedor Alto Alacena",
+        size: "3 L / Apilable",
+        cat: "potes",
+        subcat: "Potes y Contenedores",
+        badge: "Apilable",
+        desc: "Contenedor plástico transparente con tapa a presión y marcas de volumen, ideal para alacena o heladera.",
+        image: "img/contenedor_alto_alacena.jpg"
+      },
+      {
+        id: "pote-plastico-redondo",
+        name: "Pote Plástico Redondo con Tapa",
+        size: "500 cc",
+        cat: "potes",
+        subcat: "Potes y Contenedores",
+        badge: "Tapa Hermética",
+        desc: "Pote redondo con tapa color rosa, práctico para porciones, preparaciones, fraccionado o uso diario.",
+        image: "img/pote_plastico_redondo.jpeg"
+      },
+      {
+        id: "tupper-hermetico-rectangular",
+        name: "Tupper Hermético Rectangular",
+        size: "Pack x6",
+        cat: "tuppers",
+        subcat: "Tuppers y Viandas",
+        badge: "Verde y Rojo",
+        desc: "Set de tuppers plásticos con tapas a encastre en tonos verde y rojo para organizar comidas y heladera.",
+        image: "img/tupper_hermetico_rectangular.jpeg"
+      },
+      {
+        id: "vianda-con-divisiones",
+        name: "Vianda con Divisiones",
+        size: "3 Compartimentos",
+        cat: "tuppers",
+        subcat: "Tuppers y Viandas",
+        badge: "Compartimentos",
+        desc: "Vianda con tapa gris y divisiones internas para separar entradas, plato principal o acompañamientos.",
+        image: "img/vianda_con_divisiones.jpeg"
+      }
     ];
 
     let cart = JSON.parse(localStorage.getItem("feragu_quote_cart") || "[]");
@@ -206,7 +241,10 @@
       const list = ITEMS.filter(i => {
         const okCat = activeCat === "all" || i.cat === activeCat;
         const q = queryText.toLowerCase().trim();
-        const okQ = !q || i.name.toLowerCase().includes(q) || i.desc.toLowerCase().includes(q);
+        const okQ = !q ||
+          i.name.toLowerCase().includes(q) ||
+          i.size.toLowerCase().includes(q) ||
+          i.desc.toLowerCase().includes(q);
         return okCat && okQ;
       });
 
@@ -217,10 +255,7 @@
             <div class="card-img">
               <span class="badge-top">${item.badge}</span>
               <span class="tag-pack">${item.size}</span>
-              <div class="placeholder-graphic">
-                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M2 7h20"/></svg>
-                <span>Foto del rubro</span>
-              </div>
+              <img src="${item.image}" alt="${item.name} ${item.size}" loading="lazy" />
             </div>
             <div class="card-body">
               <div class="subcat">${item.subcat}</div>
@@ -249,7 +284,7 @@
       else cart.push({ id: prod.id, name: prod.name, size: prod.size, qty: 1 });
       saveAndRefresh();
       const t = document.getElementById("toast");
-      t.textContent = `Agregado: ${prod.name}`;
+      t.textContent = `Agregado: ${prod.name} (${prod.size})`;
       t.classList.add("show");
       setTimeout(() => t.classList.remove("show"), 2200);
     }

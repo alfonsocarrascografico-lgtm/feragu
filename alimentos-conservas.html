@@ -72,10 +72,11 @@
 
     .card { background: var(--surface); border-radius: var(--radius-md); border: 1px solid var(--border); overflow: hidden; display: flex; flex-direction: column; box-shadow: var(--shadow-sm); transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); }
     .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--accent); }
-    .card-img { position: relative; height: 190px; background: linear-gradient(145deg, #F4FAF0 0%, #E7F4DE 100%); display: flex; align-items: center; justify-content: center; padding: 1rem; border-bottom: 1px solid var(--border); }
-    .placeholder-graphic { display: flex; flex-direction: column; align-items: center; gap: 0.4rem; color: var(--accent-dark); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; }
-    .badge-top { position: absolute; top: 0.7rem; left: 0.7rem; padding: 0.22rem 0.6rem; border-radius: 999px; background: #fff; color: var(--accent-dark); font-size: 0.68rem; font-weight: 800; text-transform: uppercase; }
-    .tag-pack { position: absolute; top: 0.7rem; right: 0.7rem; padding: 0.22rem 0.58rem; border-radius: 8px; background: var(--charcoal); color: #fff; font-size: 0.72rem; font-weight: 800; }
+    .card-img { position: relative; height: 215px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; padding: 1.15rem 1rem 0.95rem; border-bottom: 1px solid var(--border); }
+    .card-img img { width: 100%; height: 100%; max-height: 185px; object-fit: contain; object-position: center; transition: transform 0.35s var(--transition); }
+    .card:hover .card-img img { transform: scale(1.04); }
+    .badge-top { position: absolute; top: 0.7rem; left: 0.7rem; z-index: 2; padding: 0.22rem 0.6rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent-dark); font-size: 0.68rem; font-weight: 800; text-transform: uppercase; }
+    .tag-pack { position: absolute; top: 0.7rem; right: 0.7rem; z-index: 2; padding: 0.22rem 0.58rem; border-radius: 8px; background: var(--charcoal); color: #fff; font-size: 0.72rem; font-weight: 800; }
 
     .card-body { padding: 1.2rem; display: flex; flex-direction: column; flex: 1; }
     .subcat { font-size: 0.72rem; font-weight: 700; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
@@ -129,7 +130,7 @@
       <span class="kicker">Feragu Distribuciones • Despensa y Envasados</span>
       <h1>Alimentos y Conservas</h1>
       <div class="accent-line"></div>
-      <p>Conservas, salsas, vegetales envasados y productos de almacén para abastecer hogares, comercios de barrio y cocinas comerciales.</p>
+      <p>Conservas de atún, aceites, frutos secos y granola para abastecer hogares, comercios de barrio y cocinas comerciales.</p>
     </div>
   </div>
 
@@ -137,14 +138,14 @@
     <div class="container">
       <div class="toolbar">
         <div class="filter-pills">
-          <button class="filter-btn active" data-filter="all">Todos</button>
-          <button class="filter-btn" data-filter="conservas">Conservas Vegetales</button>
-          <button class="filter-btn" data-filter="salsas">Salsas y Aderezos</button>
-          <button class="filter-btn" data-filter="despensa">Despensa y Secos</button>
+          <button class="filter-btn active" data-filter="all">Todos (8)</button>
+          <button class="filter-btn" data-filter="conservas">Conservas</button>
+          <button class="filter-btn" data-filter="aceites">Aceites</button>
+          <button class="filter-btn" data-filter="frutos-secos">Frutos Secos y Granola</button>
         </div>
         <div class="search-box">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input type="text" id="searchInput" placeholder="Buscar conserva o alimento..." />
+          <input type="text" id="searchInput" placeholder="Buscar producto o presentación..." />
         </div>
       </div>
 
@@ -183,10 +184,86 @@
   <script>
     const WHATSAPP_NUMBER = "59899000000";
     const ITEMS = [
-      { id: "alim-conserva-vegetal-lata", name: "Conserva Vegetal en Lata", size: "300 g / 800 g", cat: "conservas", subcat: "Conservas Vegetales", badge: "Alta Rotación", desc: "Práctica para ensaladas, tartas y preparaciones diarias con larga vida útil." },
-      { id: "alim-salsa-tomate-doypack", name: "Puré / Salsa de Tomate", size: "520 g", cat: "salsas", subcat: "Salsas y Aderezos", badge: "Básico de Cocina", desc: "Ideal para pastas, guisos, pizzas y bases de cocina hogareña o comercial." },
-      { id: "alim-aceitunas-frasco", name: "Aceitunas en Conserva", size: "Doypack / Frasco", cat: "conservas", subcat: "Conservas Vegetales", badge: "Sabor Intenso", desc: "Listas para picadas, empanadas, panes y recetas tradicionales." },
-      { id: "alim-despensa-combo", name: "Artículos de Despensa", size: "Pack / Unidad", cat: "despensa", subcat: "Despensa y Secos", badge: "Reposición", desc: "Productos complementarios para completar el pedido de almacén o despensa." }
+      {
+        id: "emigrante-aceite-oliva-500ml",
+        name: "Aceite de Oliva Virgen Extra",
+        size: "500 ml",
+        cat: "aceites",
+        subcat: "Emigrante • Aceites",
+        badge: "Origen Español",
+        desc: "Aceite de oliva virgen extra en botella de vidrio de 500 ml, ideal para aderezos, cocina y mesa.",
+        image: "img/aceite.jpg"
+      },
+      {
+        id: "emigrante-almendras-peladas-100g",
+        name: "Almendras Peladas",
+        size: "100 g",
+        cat: "frutos-secos",
+        subcat: "Emigrante • Frutos Secos",
+        badge: "Peso Neto 100 g",
+        desc: "Almendras peladas listas para consumo directo, repostería, ensaladas o colaciones.",
+        image: "img/almendras.jpg"
+      },
+      {
+        id: "emigrante-atun-trozos-natural-1000g",
+        name: "Atún Trozos al Natural",
+        size: "1000 g",
+        cat: "conservas",
+        subcat: "Emigrante • Conservas",
+        badge: "Formato 1 kg",
+        desc: "Atún en trozos al natural en pouch de 1000 g (950 g escurrido), práctico para cocina y comercio.",
+        image: "img/atun.jpeg"
+      },
+      {
+        id: "emigrante-atun-lomitos-natural-320g",
+        name: "Atún Lomitos al Natural",
+        size: "320 g",
+        cat: "conservas",
+        subcat: "Emigrante • Conservas",
+        badge: "Lata Abre Fácil",
+        desc: "Lomitos de atún al natural en lata de 320 g (240 g escurrido), ideal para ensaladas y platos rápidos.",
+        image: "img/atun_lata.jpeg"
+      },
+      {
+        id: "emigrante-granola-tradicional-80g",
+        name: "Granola Tradicional",
+        size: "80 g",
+        cat: "frutos-secos",
+        subcat: "Emigrante • Cereales y Granola",
+        badge: "Abre y Cierra Fácil",
+        desc: "Mezcla a base de cereales con pasas de uva y coco en envase resellable de 80 g.",
+        image: "img/granola.jpeg"
+      },
+      {
+        id: "emigrante-mani-frito-sal-70g",
+        name: "Maní Frito con Sal",
+        size: "70 g",
+        cat: "frutos-secos",
+        subcat: "Emigrante • Snacks y Frutos Secos",
+        badge: "Abre y Cierra Fácil",
+        desc: "Maní repelado frito con sal en pouch resellable de 70 g, listo para acompañar reuniones o mostrador.",
+        image: "img/mani.jpg"
+      },
+      {
+        id: "emigrante-mix-pasas-almendras-70g",
+        name: "Mix Pasas de Uva y Almendras",
+        size: "70 g",
+        cat: "frutos-secos",
+        subcat: "Emigrante • Frutos Secos",
+        badge: "Abre y Cierra Fácil",
+        desc: "Combinación práctica de pasas de uva y almendras tostadas en envase resellable de 70 g.",
+        image: "img/mix.jpeg"
+      },
+      {
+        id: "emigrante-nueces-peladas-80g",
+        name: "Nueces Peladas",
+        size: "80 g",
+        cat: "frutos-secos",
+        subcat: "Emigrante • Frutos Secos",
+        badge: "Peso Neto 80 g",
+        desc: "Nueces peladas seleccionadas en bolsa resellable de 80 g para recetas dulces, saladas o snack.",
+        image: "img/nueces.jpeg"
+      }
     ];
 
     let cart = JSON.parse(localStorage.getItem("feragu_quote_cart") || "[]");
@@ -197,7 +274,10 @@
       const list = ITEMS.filter(i => {
         const okCat = activeCat === "all" || i.cat === activeCat;
         const q = queryText.toLowerCase().trim();
-        const okQ = !q || i.name.toLowerCase().includes(q) || i.desc.toLowerCase().includes(q);
+        const okQ = !q ||
+          i.name.toLowerCase().includes(q) ||
+          i.size.toLowerCase().includes(q) ||
+          i.desc.toLowerCase().includes(q);
         return okCat && okQ;
       });
 
@@ -208,10 +288,7 @@
             <div class="card-img">
               <span class="badge-top">${item.badge}</span>
               <span class="tag-pack">${item.size}</span>
-              <div class="placeholder-graphic">
-                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/></svg>
-                <span>Foto del rubro</span>
-              </div>
+              <img src="${item.image}" alt="${item.name} ${item.size}" loading="lazy" />
             </div>
             <div class="card-body">
               <div class="subcat">${item.subcat}</div>
@@ -240,7 +317,7 @@
       else cart.push({ id: prod.id, name: prod.name, size: prod.size, qty: 1 });
       saveAndRefresh();
       const t = document.getElementById("toast");
-      t.textContent = `Agregado: ${prod.name}`;
+      t.textContent = `Agregado: ${prod.name} (${prod.size})`;
       t.classList.add("show");
       setTimeout(() => t.classList.remove("show"), 2200);
     }
