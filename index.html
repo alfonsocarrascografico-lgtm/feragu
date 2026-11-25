@@ -1,0 +1,3140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feragu Distribuciones | Feragu Limpieza — Fabricación Propia</title>
+  <meta name="description" content="Feragu Distribuciones: empresa multirrubro con línea de fabricación propia Feragu Limpieza, además de envases y plásticos, congelados, bebidas y alimentos y conservas." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --red: #E31E24;
+      --red-dark: #B81419;
+      --red-soft: #FFF1F1;
+      --green: #699C3B;
+      --green-dark: #4B7427;
+      --green-soft: #F1F8EA;
+      --sky: #0EA5E9;
+      --sky-dark: #0369A1;
+      --sky-soft: #E0F2FE;
+      --orange: #F97316;
+      --orange-dark: #C2410C;
+      --orange-soft: #FFF7ED;
+      --blue: #0E7AC4;
+      --blue-soft: #EEF7FE;
+      --yellow: #E6B800;
+      --charcoal: #222222;
+      --ink: #1C1E21;
+      --muted: #5C636A;
+      --bg: #F6F7F8;
+      --surface: #FFFFFF;
+      --border: #E5E7EB;
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --shadow-sm: 0 4px 14px rgba(17, 24, 39, 0.05);
+      --shadow-md: 0 12px 30px rgba(17, 24, 39, 0.08);
+      --shadow-lg: 0 22px 48px rgba(17, 24, 39, 0.12);
+      --transition: 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      background-color: var(--bg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .font-display {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* ================= NAVBAR ================= */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.85);
+      transition: box-shadow var(--transition);
+    }
+
+    .navbar.scrolled {
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 1.25rem;
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+
+    .brand-logo-img {
+      height: 48px;
+      width: auto;
+      max-width: 155px;
+      object-fit: contain;
+    }
+
+    .brand-divider {
+      width: 1px;
+      height: 28px;
+      background: var(--border);
+    }
+
+    .brand-sub {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    .brand-sub span:first-child {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      color: var(--green);
+      text-transform: uppercase;
+    }
+
+    .brand-sub span:last-child {
+      font-size: 0.68rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 1.85rem;
+      list-style: none;
+    }
+
+    .nav-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links > .nav-item > a,
+    .nav-dropdown-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      white-space: nowrap;
+      line-height: 1;
+      padding: 0.5rem 0.15rem;
+      transition: color var(--transition);
+    }
+
+    .nav-links > .nav-item > a:hover,
+    .nav-dropdown-trigger:hover,
+    .nav-item.dropdown-open .nav-dropdown-trigger {
+      color: var(--red);
+    }
+
+    .nav-chevron {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      transition: transform var(--transition);
+    }
+
+    .nav-item.has-dropdown:hover .nav-chevron,
+    .nav-item.dropdown-open .nav-chevron {
+      transform: rotate(180deg);
+    }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: calc(100% + 0.5rem);
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      min-width: 215px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 0.45rem;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+      z-index: 1100;
+    }
+
+    .nav-dropdown-menu::before {
+      content: "";
+      position: absolute;
+      top: -12px;
+      left: 0;
+      right: 0;
+      height: 12px;
+    }
+
+    .nav-item.has-dropdown:hover .nav-dropdown-menu,
+    .nav-item.has-dropdown:focus-within .nav-dropdown-menu,
+    .nav-item.dropdown-open .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .nav-dropdown-menu a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.62rem 0.85rem;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      white-space: nowrap;
+      line-height: 1.2;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    .nav-dropdown-menu a:hover {
+      background: var(--green-soft);
+      color: var(--green-dark);
+    }
+
+    .nav-dropdown-menu a span.sub-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      flex-shrink: 0;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-shrink: 0;
+    }
+
+    .btn-quote-badge {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 0.9rem;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      font-weight: 700;
+      font-size: 0.84rem;
+      white-space: nowrap;
+      line-height: 1;
+      transition: all var(--transition);
+    }
+
+    .btn-quote-badge:hover {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .quote-count {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 20px;
+      height: 20px;
+      padding: 0 5px;
+      border-radius: 999px;
+      background: var(--red);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+    }
+
+    .btn-primary-nav {
+      display: none;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.6rem 1.15rem;
+      border-radius: 999px;
+      background: var(--red);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      line-height: 1;
+      box-shadow: 0 6px 16px rgba(227, 30, 36, 0.25);
+      transition: all var(--transition);
+    }
+
+    .btn-primary-nav:hover {
+      background: var(--red-dark);
+      transform: translateY(-1px);
+    }
+
+    .mobile-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      color: var(--charcoal);
+    }
+
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      gap: 0.35rem;
+      padding: 1rem 1.25rem 1.4rem;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu > a,
+    .mobile-submenu-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0.65rem 0.75rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.96rem;
+      color: var(--charcoal);
+      white-space: nowrap;
+      line-height: 1.2;
+      text-align: left;
+    }
+
+    .mobile-menu > a:hover,
+    .mobile-submenu-toggle:hover {
+      background: var(--bg);
+      color: var(--red);
+    }
+
+    .mobile-submenu {
+      display: none;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding-left: 1rem;
+      margin: 0.1rem 0 0.35rem;
+      border-left: 2px solid var(--green);
+      margin-left: 0.85rem;
+    }
+
+    .mobile-submenu.open {
+      display: flex;
+    }
+
+    .mobile-submenu a {
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .mobile-submenu a:hover {
+      background: var(--green-soft);
+      color: var(--green-dark);
+    }
+
+    @media (min-width: 960px) {
+      .nav-links {
+        display: flex;
+      }
+      .btn-primary-nav {
+        display: inline-flex;
+      }
+      .mobile-toggle {
+        display: none;
+      }
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero {
+      position: relative;
+      padding-top: 5.75rem;
+      padding-bottom: 3rem;
+      scroll-margin-top: 72px;
+      background:
+        radial-gradient(circle at 88% 18%, rgba(105, 156, 59, 0.13) 0%, transparent 42%),
+        radial-gradient(circle at 12% 85%, rgba(227, 30, 36, 0.08) 0%, transparent 45%),
+        linear-gradient(180deg, #FFFFFF 0%, #F4F6F8 100%);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.25rem;
+      align-items: center;
+    }
+
+    @media (min-width: 960px) {
+      .hero {
+        padding-top: 6.25rem;
+        padding-bottom: 3.5rem;
+      }
+      .hero-grid {
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 3rem;
+      }
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      padding: 0.42rem 0.9rem;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1.15rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+
+    .eyebrow-tag {
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.15rem, 4.4vw, 3.45rem);
+      font-weight: 900;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .hero h1 .accent-red {
+      color: var(--red);
+      display: block;
+    }
+
+    .hero-accent-bar {
+      width: 68px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--red);
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin-bottom: 1.65rem;
+    }
+
+    .hero-lead strong {
+      color: var(--charcoal);
+      font-weight: 700;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.65rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.92rem 1.65rem;
+      border-radius: 999px;
+      background: var(--red);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 10px 24px rgba(227, 30, 36, 0.28);
+      transition: all var(--transition);
+    }
+
+    .btn-primary:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(227, 30, 36, 0.34);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.92rem 1.5rem;
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--charcoal);
+      border: 1.5px solid var(--border);
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: all var(--transition);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--green);
+      color: var(--green-dark);
+      background: var(--green-soft);
+    }
+
+    .hero-trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.35rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .trust-chip {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .trust-chip-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--green-soft);
+      color: var(--green);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Hero Product Showcase Stage */
+    .hero-showcase {
+      position: relative;
+      background: linear-gradient(145deg, #FFFFFF 0%, #EEF2F5 100%);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 1.4rem 1.35rem;
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .showcase-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    .feragu-limpieza-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .fl-wordmark {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+    }
+
+    .fl-wordmark .fl-top {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.35rem;
+      color: var(--charcoal);
+      letter-spacing: -0.03em;
+    }
+
+    .fl-wordmark .fl-mid {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.24em;
+      color: var(--green);
+      margin-top: 2px;
+    }
+
+    .fl-wordmark .fl-bot {
+      font-size: 0.56rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-top: 2px;
+      text-transform: uppercase;
+    }
+
+    .fab-pill {
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: var(--charcoal);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .hero-photo-trigger {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #E9EDF0;
+      border: 1.5px solid rgba(229, 231, 235, 0.95);
+      box-shadow: inset 0 -24px 30px -24px rgba(17, 24, 39, 0.22);
+      cursor: pointer;
+      text-align: left;
+      transition: border-color var(--transition), box-shadow var(--transition);
+    }
+
+    .hero-photo-trigger:hover,
+    .hero-photo-trigger:focus-visible {
+      border-color: var(--green);
+      box-shadow: 0 12px 28px rgba(105, 156, 59, 0.22);
+      outline: none;
+    }
+
+    .hero-photo-trigger img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 10.6;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .hero-photo-trigger:hover img {
+      transform: scale(1.03);
+    }
+
+    .hero-photo-hint {
+      position: absolute;
+      bottom: 0.85rem;
+      right: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(34, 34, 34, 0.88);
+      backdrop-filter: blur(6px);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .hero-photo-trigger:hover .hero-photo-hint {
+      background: var(--green);
+      transform: translateY(-2px);
+    }
+
+    .showcase-footer-pills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .mini-pillar {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.55rem 0.5rem;
+      text-align: center;
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+
+    .mini-pillar span {
+      display: block;
+      color: var(--green);
+      font-size: 0.85rem;
+      margin-bottom: 0.1rem;
+    }
+
+    /* ================= RED VALUE RIBBON ================= */
+    .value-ribbon {
+      background: var(--red);
+      color: #fff;
+      padding: 1.85rem 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .ribbon-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.35rem;
+    }
+
+    @media (min-width: 640px) {
+      .ribbon-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 960px) {
+      .ribbon-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.65rem;
+      }
+    }
+
+    .ribbon-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+    }
+
+    .ribbon-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .ribbon-item h3 {
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.2rem;
+    }
+
+    .ribbon-item p {
+      font-size: 0.81rem;
+      line-height: 1.42;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* ================= SECTION HEADERS & SPACING ================= */
+    section {
+      padding: 2.75rem 0;
+      scroll-margin-top: 72px;
+    }
+
+    @media (min-width: 960px) {
+      section {
+        padding: 3.25rem 0;
+      }
+    }
+
+    .section-header {
+      max-width: 680px;
+      margin-bottom: 1.75rem;
+    }
+
+    .section-header.center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--green);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.7rem, 3.1vw, 2.4rem);
+      font-weight: 900;
+      color: var(--charcoal);
+      text-transform: uppercase;
+      margin-bottom: 0.65rem;
+    }
+
+    .section-line {
+      width: 52px;
+      height: 4px;
+      border-radius: 999px;
+      background: var(--green);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-header.center .section-line {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    /* ================= CATALOG SECTION ================= */
+    .catalog-section {
+      background: var(--bg);
+    }
+
+    .catalog-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.65rem;
+    }
+
+    .filter-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .filter-btn {
+      padding: 0.55rem 1.05rem;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      transition: all var(--transition);
+    }
+
+    .filter-btn:hover {
+      border-color: var(--green);
+      color: var(--green-dark);
+    }
+
+    .filter-btn.active {
+      background: var(--charcoal);
+      border-color: var(--charcoal);
+      color: #fff;
+    }
+
+    .search-box {
+      position: relative;
+      min-width: 240px;
+      flex: 1;
+      max-width: 320px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 0.6rem 1rem 0.6rem 2.5rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      font-family: inherit;
+      font-size: 0.88rem;
+      color: var(--ink);
+      outline: none;
+      transition: border-color var(--transition);
+    }
+
+    .search-box input:focus {
+      border-color: var(--green);
+    }
+
+    .search-box svg {
+      position: absolute;
+      left: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      color: var(--muted);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .product-card {
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(105, 156, 59, 0.45);
+    }
+
+    .product-visual {
+      position: relative;
+      height: 225px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem 1.15rem 0.9rem;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+    }
+
+    .product-visual img {
+      width: 100%;
+      height: 100%;
+      max-height: 195px;
+      object-fit: contain;
+      object-position: center;
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .product-card:hover .product-visual img {
+      transform: scale(1.05);
+    }
+
+    .product-badge-top {
+      position: absolute;
+      top: 0.8rem;
+      left: 0.8rem;
+      z-index: 2;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: var(--bg);
+      color: var(--charcoal);
+      border: 1px solid var(--border);
+    }
+
+    .product-size-tag {
+      position: absolute;
+      top: 0.8rem;
+      right: 0.8rem;
+      z-index: 2;
+      padding: 0.25rem 0.6rem;
+      border-radius: 8px;
+      background: var(--charcoal);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 0.74rem;
+    }
+
+    .product-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-aroma {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.3rem;
+    }
+
+    .product-body h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--charcoal);
+      margin-bottom: 0.5rem;
+    }
+
+    .product-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+      flex: 1;
+    }
+
+    .product-benefits {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.32rem;
+      margin-bottom: 1.1rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--border);
+    }
+
+    .product-benefits li {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .product-benefits li::before {
+      content: "✓";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      font-size: 0.68rem;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .product-actions {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.5rem;
+    }
+
+    .btn-add-quote {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      padding: 0.68rem 0.85rem;
+      border-radius: 10px;
+      background: var(--green);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.84rem;
+      transition: all var(--transition);
+    }
+
+    .btn-add-quote:hover {
+      background: var(--green-dark);
+    }
+
+    .btn-add-quote.added {
+      background: var(--charcoal);
+    }
+
+    .btn-detail {
+      padding: 0.68rem 0.8rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--charcoal);
+      font-weight: 700;
+      font-size: 0.82rem;
+      transition: all var(--transition);
+    }
+
+    .btn-detail:hover {
+      border-color: var(--charcoal);
+      background: var(--surface);
+    }
+
+    /* ================= YIELD CALCULATOR ================= */
+    .calculator-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .calc-card {
+      background: linear-gradient(135deg, #F8FAF6 0%, #FFFFFF 100%);
+      border: 1px solid #DCE7D3;
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .calc-card {
+        grid-template-columns: 1.1fr 0.9fr;
+        padding: 2.25rem;
+      }
+    }
+
+    .calc-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .calc-field label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 0.45rem;
+    }
+
+    .calc-select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      background: var(--surface);
+      font-family: inherit;
+      font-size: 0.94rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      outline: none;
+    }
+
+    .calc-select:focus {
+      border-color: var(--green);
+    }
+
+    .calc-range {
+      width: 100%;
+      accent-color: var(--green);
+      height: 8px;
+      cursor: pointer;
+    }
+
+    .calc-result-box {
+      background: var(--charcoal);
+      color: #fff;
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .calc-result-box::after {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: rgba(105, 156, 59, 0.22);
+    }
+
+    .calc-stat-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #A3E66B;
+      font-weight: 800;
+      margin-bottom: 0.3rem;
+    }
+
+    .calc-stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2.3rem, 3.8vw, 3rem);
+      font-weight: 900;
+      line-height: 1.05;
+      margin-bottom: 0.55rem;
+    }
+
+    .calc-stat-sub {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.82);
+      margin-bottom: 1.15rem;
+    }
+
+    .calc-metrics-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .calc-mini strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.12rem;
+      color: #fff;
+    }
+
+    .calc-mini span {
+      font-size: 0.76rem;
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    /* ================= TIPS & STORIES SECTION ================= */
+    .tips-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+
+    .tips-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.15rem;
+    }
+
+    @media (min-width: 640px) {
+      .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .tips-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .tip-card {
+      border-radius: var(--radius-md);
+      padding: 1.45rem 1.3rem;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 245px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition);
+    }
+
+    .tip-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .tip-card.c-dark {
+      background: linear-gradient(155deg, #2B332A 0%, #1B201B 100%);
+    }
+
+    .tip-card.c-green {
+      background: linear-gradient(155deg, #4E7A29 0%, #2F4E16 100%);
+    }
+
+    .tip-card.c-red {
+      background: linear-gradient(155deg, #D91E24 0%, #9A1116 100%);
+    }
+
+    .tip-card.c-charcoal {
+      background: linear-gradient(155deg, #343A40 0%, #1F2326 100%);
+    }
+
+    .tip-num {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      line-height: 1;
+      opacity: 0.92;
+      margin-bottom: 0.55rem;
+    }
+
+    .tip-card h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 0.55rem;
+    }
+
+    .tip-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      font-size: 0.83rem;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .tip-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .tip-footer-brand {
+      margin-top: 1rem;
+      padding-top: 0.65rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    /* ================= MULTIRRUBRO SECTION ================= */
+    .multirrubro-section {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+
+    .multi-banner-own {
+      background: linear-gradient(135deg, #F5FAF0 0%, #FFFFFF 100%);
+      border: 2px solid var(--green);
+      border-radius: var(--radius-lg);
+      padding: 1.35rem 1.6rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (min-width: 820px) {
+      .multi-banner-own {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .multi-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.35rem;
+    }
+
+    @media (min-width: 640px) {
+      .multi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1120px) {
+      .multi-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .rubro-card {
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      padding: 1.5rem 1.35rem;
+      border: 1.5px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+    }
+
+    .rubro-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Rubro 1: Envases y Plásticos -> Rojo */
+    .rubro-card.rubro-envases {
+      border-top: 4px solid var(--red);
+    }
+    .rubro-card.rubro-envases:hover {
+      border-color: var(--red);
+    }
+    .rubro-envases .rubro-icon-box {
+      background: var(--red-soft);
+      color: var(--red);
+    }
+    .rubro-envases .rubro-link-btn:hover {
+      background: var(--red);
+    }
+
+    /* Rubro 2: Congelados -> Celeste */
+    .rubro-card.rubro-congelados {
+      border-top: 4px solid var(--sky);
+    }
+    .rubro-card.rubro-congelados:hover {
+      border-color: var(--sky);
+    }
+    .rubro-congelados .rubro-icon-box {
+      background: var(--sky-soft);
+      color: var(--sky-dark);
+    }
+    .rubro-congelados .rubro-link-btn:hover {
+      background: var(--sky-dark);
+    }
+
+    /* Rubro 3: Bebidas (principalmente cervezas) -> Anaranjado */
+    .rubro-card.rubro-bebidas {
+      border-top: 4px solid var(--orange);
+    }
+    .rubro-card.rubro-bebidas:hover {
+      border-color: var(--orange);
+    }
+    .rubro-bebidas .rubro-icon-box {
+      background: var(--orange-soft);
+      color: var(--orange-dark);
+    }
+    .rubro-bebidas .rubro-link-btn:hover {
+      background: var(--orange-dark);
+    }
+
+    /* Rubro 4: Alimentos y Conservas -> Verde */
+    .rubro-card.rubro-alimentos {
+      border-top: 4px solid var(--green);
+    }
+    .rubro-card.rubro-alimentos:hover {
+      border-color: var(--green);
+    }
+    .rubro-alimentos .rubro-icon-box {
+      background: var(--green-soft);
+      color: var(--green-dark);
+    }
+    .rubro-alimentos .rubro-link-btn:hover {
+      background: var(--green-dark);
+    }
+
+    .rubro-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.65rem;
+      margin-bottom: 1rem;
+    }
+
+    .rubro-icon-box {
+      width: 46px;
+      height: 46px;
+      border-radius: 13px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .multi-tag {
+      display: inline-block;
+      padding: 0.24rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .multi-tag.own {
+      background: var(--green);
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .multi-tag.tag-red {
+      background: var(--red-soft);
+      color: var(--red-dark);
+    }
+
+    .multi-tag.tag-sky {
+      background: var(--sky-soft);
+      color: var(--sky-dark);
+    }
+
+    .multi-tag.tag-orange {
+      background: var(--orange-soft);
+      color: var(--orange-dark);
+    }
+
+    .multi-tag.tag-green {
+      background: var(--green-soft);
+      color: var(--green-dark);
+    }
+
+    .rubro-card h3 {
+      font-size: 1.12rem;
+      font-weight: 800;
+      margin-bottom: 0.45rem;
+      color: var(--charcoal);
+    }
+
+    .rubro-card p {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 0.95rem;
+    }
+
+    .rubro-highlights {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 1.25rem;
+      padding-top: 0.7rem;
+      border-top: 1px dashed var(--border);
+    }
+
+    .rubro-link-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0.75rem 0.95rem;
+      border-radius: 12px;
+      background: var(--charcoal);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: background var(--transition), transform var(--transition);
+    }
+
+    .rubro-link-btn:hover {
+      transform: translateX(2px);
+    }
+
+    /* ================= CONTACT & QUOTE SECTION ================= */
+    .contact-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 960px) {
+      .contact-grid {
+        grid-template-columns: 1fr 1.15fr;
+      }
+    }
+
+    .contact-info-card {
+      background: var(--bg);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .channel-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.1rem 0 1.45rem;
+    }
+
+    .channel-pill {
+      padding: 0.42rem 0.8rem;
+      border-radius: 999px;
+      background: var(--green-soft);
+      color: var(--green-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .contact-form {
+      background: var(--bg);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    @media (min-width: 600px) {
+      .form-row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .form-group label {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--charcoal);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.72rem 0.9rem;
+      border-radius: 10px;
+      border: 1.5px solid var(--border);
+      font-family: inherit;
+      font-size: 0.92rem;
+      color: var(--ink);
+      background: var(--surface);
+      outline: none;
+      transition: border-color var(--transition), background var(--transition);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--green);
+      background: var(--surface);
+    }
+
+    .btn-whatsapp-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.95rem 1.45rem;
+      border-radius: 12px;
+      background: #25D366;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      box-shadow: 0 10px 22px rgba(37, 211, 102, 0.28);
+      transition: all var(--transition);
+    }
+
+    .btn-whatsapp-submit:hover {
+      background: #1EBE5D;
+      transform: translateY(-2px);
+    }
+
+    /* ================= FOOTER ================= */
+    .footer {
+      background: var(--charcoal);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+      padding: 2.35rem 1.25rem;
+    }
+
+    @media (min-width: 860px) {
+      .footer-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .footer-brand-block {
+      display: flex;
+      align-items: center;
+      gap: 1.15rem;
+    }
+
+    .footer-logo-box {
+      background: #FFFFFF;
+      padding: 0.55rem 0.85rem;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .footer-logo-box img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .footer-copy {
+      max-width: 380px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .footer-cta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-left: 0;
+    }
+
+    @media (min-width: 860px) {
+      .footer-cta {
+        border-left: 1px solid rgba(255, 255, 255, 0.2);
+        padding-left: 2rem;
+      }
+    }
+
+    .wa-circle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      flex-shrink: 0;
+      transition: all var(--transition);
+    }
+
+    .footer-cta:hover .wa-circle {
+      background: #25D366;
+      border-color: #25D366;
+    }
+
+    .footer-cta-text strong {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      color: #8FD158;
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+    }
+
+    .footer-cta-text span {
+      font-size: 0.86rem;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .footer-bottom {
+      background: #171717;
+      padding: 0.9rem 1.25rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    /* ================= DRAWER & CAROUSEL MODAL ================= */
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(17, 24, 39, 0.58);
+      backdrop-filter: blur(4px);
+      z-index: 1200;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .drawer-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .quote-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 420px;
+      background: var(--surface);
+      z-index: 1300;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+      box-shadow: -12px 0 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .quote-drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 1.35rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.35rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .quote-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.85rem;
+      padding: 0.85rem;
+      border-radius: 12px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+    }
+
+    .qty-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.2rem 0.45rem;
+    }
+
+    .qty-controls button {
+      width: 24px;
+      height: 24px;
+      font-weight: 800;
+      color: var(--charcoal);
+    }
+
+    .drawer-footer {
+      padding: 1.25rem 1.5rem;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    /* Product Technical Sheet Carousel Modal */
+    .modal-box {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -46%) scale(0.96);
+      width: calc(100% - 2rem);
+      max-width: 620px;
+      max-height: 92vh;
+      overflow-y: auto;
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: 1.65rem;
+      z-index: 1400;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .modal-box.open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .modal-stage {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1rem 3.25rem;
+      min-height: 205px;
+    }
+
+    .modal-stage img {
+      height: 175px;
+      width: auto;
+      object-fit: contain;
+      transition: opacity 0.2s ease, transform 0.25s ease;
+    }
+
+    .modal-nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      color: var(--charcoal);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition);
+      z-index: 3;
+    }
+
+    .modal-nav-arrow:hover {
+      background: var(--green);
+      border-color: var(--green);
+      color: #FFFFFF;
+      transform: translateY(-50%) scale(1.06);
+    }
+
+    .modal-nav-arrow.prev {
+      left: 0.75rem;
+    }
+
+    .modal-nav-arrow.next {
+      right: 0.75rem;
+    }
+
+    .modal-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      margin-top: 0.75rem;
+    }
+
+    .modal-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--border);
+      transition: all var(--transition);
+    }
+
+    .modal-dot.active {
+      width: 24px;
+      background: var(--green);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--charcoal);
+      color: #fff;
+      padding: 0.75rem 1.3rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-md);
+      z-index: 1500;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#inicio" class="brand-lockup" aria-label="Feragu Distribuciones Inicio">
+        <img src="img/logo_feragu.png" alt="Logo Feragu Distribuciones" class="brand-logo-img" />
+        <div class="brand-divider"></div>
+        <div class="brand-sub">
+          <span>Limpieza</span>
+          <span>Fabricación propia</span>
+        </div>
+      </a>
+
+      <nav aria-label="Navegación principal">
+        <ul class="nav-links">
+          <li class="nav-item">
+            <a href="#inicio">Inicio</a>
+          </li>
+          <li class="nav-item has-dropdown" id="navProductsItem">
+            <a href="#productos" class="nav-dropdown-trigger" id="navProductsTrigger" aria-expanded="false" aria-haspopup="true">
+              Productos de limpieza
+              <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </a>
+            <div class="nav-dropdown-menu" role="menu" aria-label="Subsecciones de productos de limpieza">
+              <a href="#rendimiento" role="menuitem">
+                Rendimiento
+                <span class="sub-dot"></span>
+              </a>
+              <a href="#tips" role="menuitem">
+                Tips y usos
+                <span class="sub-dot"></span>
+              </a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="#multirrubro">Multirrubro</a>
+          </li>
+          <li class="nav-item">
+            <a href="#contacto">Contacto</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-quote-badge" id="openDrawerBtn" aria-label="Abrir lista de cotización">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+            <rect x="9" y="3" width="6" height="4" rx="2"/>
+            <path d="M9 14l2 2 4-4"/>
+          </svg>
+          <span>Mi Pedido</span>
+          <span class="quote-count" id="quoteCount">0</span>
+        </button>
+        <a href="#contacto" class="btn-primary-nav">Cotizar ahora</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Abrir menú">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#inicio" class="mobile-link">Inicio</a>
+      <button type="button" class="mobile-submenu-toggle" id="mobileProductsToggle" aria-expanded="false">
+        <span>Productos de limpieza</span>
+        <svg class="nav-chevron" id="mobileChevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </button>
+      <div class="mobile-submenu" id="mobileProductsSubmenu">
+        <a href="#productos" class="mobile-link">Ver catálogo completo</a>
+        <a href="#rendimiento" class="mobile-link">Rendimiento</a>
+        <a href="#tips" class="mobile-link">Tips y usos</a>
+      </div>
+      <a href="#multirrubro" class="mobile-link">Multirrubro</a>
+      <a href="#contacto" class="mobile-link">Contacto</a>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-eyebrow">
+          <span class="eyebrow-tag">Fabricación Propia</span>
+          <span>Feragu Distribuciones • Línea Institucional y Hogar</span>
+        </div>
+
+        <h1>
+          Tu aliado en la
+          <span class="accent-red">limpieza de todos los días</span>
+        </h1>
+
+        <div class="hero-accent-bar"></div>
+
+        <p class="hero-lead">
+          Desde <strong>Feragu Distribuciones</strong> potenciamos nuestra marca propia <strong>Feragu Limpieza</strong>: fórmulas concentradas de alto rendimiento diseñadas para brindar máxima efectividad, frescura duradera y ahorro real en hogares, comercios y empresas.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#productos" class="btn-primary">
+            Explorar productos propios
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+          <a href="#multirrubro" class="btn-secondary">
+            Ver otros rubros
+          </a>
+        </div>
+
+        <div class="hero-trust-row">
+          <div class="trust-chip">
+            <span class="trust-chip-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9z"/><path d="M12 22c-4.97 0-9-4.03-9-9 4.97 0 9 4.03 9 9z"/><path d="M12 22V8"/></svg>
+            </span>
+            Fórmulas concentradas
+          </div>
+          <div class="trust-chip">
+            <span class="trust-chip-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            Abastecimiento directo
+          </div>
+          <div class="trust-chip">
+            <span class="trust-chip-icon">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+            </span>
+            Respaldo multirrubro
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual Product Lineup Card -->
+      <div class="hero-showcase">
+        <div class="showcase-header">
+          <div class="feragu-limpieza-badge">
+            <div class="fl-wordmark">
+              <div class="fl-top">
+                <span>feragu</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#699C3B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+                </svg>
+              </div>
+              <span class="fl-mid">LIMPIEZA</span>
+              <span class="fl-bot">Efectividad que se ve</span>
+            </div>
+          </div>
+          <span class="fab-pill">Línea Propia</span>
+        </div>
+
+        <button type="button" class="hero-photo-trigger" id="heroExhibitionBtn" aria-label="Ver fichas técnicas de los 4 productos Feragu Limpieza">
+          <img
+            src="img/Productos de limpieza Feragu en exhibición.jpg"
+            alt="Productos de limpieza Feragu en exhibición: Limpiador Detergente Multiusos 5L, Limpiador Desinfectante Concentrado 5L, Limpiador Multiuso Concentrado 500ml y Lavavajilla Concentrado"
+          />
+          <span class="hero-photo-hint">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+            </svg>
+            Ver fichas técnicas (1/4)
+          </span>
+        </button>
+
+        <div class="showcase-footer-pills">
+          <div class="mini-pillar">
+            <span>✦</span>
+            Más natural y fresca
+          </div>
+          <div class="mini-pillar">
+            <span>✓</span>
+            Confianza y eficacia
+          </div>
+          <div class="mini-pillar">
+            <span>★</span>
+            Limpieza que se nota
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RED VALUE RIBBON ================= -->
+  <div class="value-ribbon">
+    <div class="container ribbon-grid">
+      <div class="ribbon-item">
+        <div class="ribbon-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div>
+          <h3>Más Visibilidad</h3>
+          <p>Nuestra línea de limpieza como protagonista en tu hogar, local o empresa.</p>
+        </div>
+      </div>
+
+      <div class="ribbon-item">
+        <div class="ribbon-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+        </div>
+        <div>
+          <h3>Más Confianza</h3>
+          <p>Elaboración propia con estándares consistentes que garantizan calidad en cada envase.</p>
+        </div>
+      </div>
+
+      <div class="ribbon-item">
+        <div class="ribbon-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div>
+          <h3>Más Conexión</h3>
+          <p>Presentaciones pensadas tanto para el consumo familiar como para reposición mayorista.</p>
+        </div>
+      </div>
+
+      <div class="ribbon-item">
+        <div class="ribbon-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <div>
+          <h3>Más Resultados</h3>
+          <p>Fórmulas concentradas que rinden más litros por envase y optimizan tu presupuesto.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PRODUCTS CATALOG SECTION ================= -->
+  <section class="catalog-section" id="productos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">Fabricación Propia • Feragu Limpieza</span>
+        <h2>Nuestra línea de productos concentrados</h2>
+        <div class="section-line"></div>
+        <p>Desarrollados y envasados por Feragu Distribuciones. Elegí tus productos y armá tu pedido mayorista o minorista en segundos.</p>
+      </div>
+
+      <div class="catalog-controls">
+        <div class="filter-pills" role="tablist" aria-label="Filtrar productos">
+          <button class="filter-btn active" data-filter="all">Todos (4)</button>
+          <button class="filter-btn" data-filter="bidon">Bidones 5L</button>
+          <button class="filter-btn" data-filter="uso-diario">Uso Diario</button>
+          <button class="filter-btn" data-filter="cocina">Cocina y Vajilla</button>
+        </div>
+
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input type="text" id="productSearch" placeholder="Buscar producto o uso..." aria-label="Buscar producto" />
+        </div>
+      </div>
+
+      <div class="products-grid" id="productsGrid">
+        <!-- Renderizado dinámicamente por JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= YIELD CALCULATOR ================= -->
+  <section class="calculator-section" id="rendimiento">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-kicker">Ahorro Inteligente</span>
+        <h2>Calculá el rendimiento real</h2>
+        <div class="section-line"></div>
+        <p>Comprobá cuántos litros de solución lista para usar obtenés con nuestros productos concentrados de fabricación propia.</p>
+      </div>
+
+      <div class="calc-card">
+        <div class="calc-controls">
+          <div class="calc-field">
+            <label for="calcProduct">Seleccioná el producto Feragu Limpieza</label>
+            <select id="calcProduct" class="calc-select">
+              <option value="detergente">Limpiador Detergente Multiusos (Bidón 5L)</option>
+              <option value="desinfectante">Limpiador Desinfectante Concentrado (Bidón 5L)</option>
+              <option value="multiuso">Limpiador Multiuso Concentrado (500 ml)</option>
+              <option value="lavavajilla">Lavavajilla Concentrado (Botella 750 ml)</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="calcQty">
+              <span>Cantidad de envases a adquirir</span>
+              <strong id="calcQtyLabel" style="color: var(--green);">2 envases</strong>
+            </label>
+            <input type="range" id="calcQty" class="calc-range" min="1" max="20" value="2" />
+          </div>
+
+          <p id="calcDilutionNote" style="font-size: 0.86rem; color: var(--muted); background: var(--surface); padding: 0.85rem 1rem; border-radius: 10px; border: 1px solid var(--border);">
+            Dilución recomendada: 1 parte de producto cada 19 partes de agua para limpieza profunda de pisos y superficies.
+          </p>
+        </div>
+
+        <div class="calc-result-box">
+          <div class="calc-stat-label">Rendimiento Total Estimado</div>
+          <div class="calc-stat-number" id="calcTotalLiters">200 Litros</div>
+          <p class="calc-stat-sub" id="calcSummaryText">De solución limpiadora lista para usar en pisos, baños y superficies.</p>
+
+          <div class="calc-metrics-row">
+            <div class="calc-mini">
+              <strong id="calcConcentrateVol">10 L</strong>
+              <span>Producto puro concentrado</span>
+            </div>
+            <div class="calc-mini">
+              <strong id="calcBottlesSaved">~200 bot.</strong>
+              <span>De 1L equivalentes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TIPS & STORIES SECTION ================= -->
+  <section class="tips-section" id="tips">
+    <div class="container">
+      <div class="section-header center">
+        <span class="section-kicker">Guía Práctica Feragu</span>
+        <h2>Usos múltiples y tips de aplicación</h2>
+        <div class="section-line"></div>
+        <p>Sacale el máximo provecho a cada fórmula con recomendaciones prácticas para cada ambiente.</p>
+      </div>
+
+      <div class="tips-grid">
+        <div class="tip-card c-dark">
+          <div>
+            <div class="tip-num">3 TIPS</div>
+            <h3>Para una limpieza efectiva</h3>
+            <ul class="tip-list">
+              <li>• Respetá la dilución sugerida según el nivel de suciedad.</li>
+              <li>• Aplicá con pulverizador en superficies verticales.</li>
+              <li>• Dejá actuar 3 minutos el desinfectante antes de repasar.</li>
+            </ul>
+          </div>
+          <div class="tip-footer-brand">Feragu Limpieza</div>
+        </div>
+
+        <div class="tip-card c-green">
+          <div>
+            <div class="tip-num">4 ÁREAS</div>
+            <h3>Usos múltiples</h3>
+            <ul class="tip-list">
+              <li>✦ Pisos cerámicos, porcelanatos y flotantes</li>
+              <li>✦ Baños, griferías y azulejos</li>
+              <li>✦ Cocina, mesadas y electrodomésticos</li>
+              <li>✦ Superficies de alto tránsito</li>
+            </ul>
+          </div>
+          <div class="tip-footer-brand">Multiuso Concentrado</div>
+        </div>
+
+        <div class="tip-card c-red">
+          <div>
+            <div class="tip-num">99,9%</div>
+            <h3>Desinfección y aroma floral</h3>
+            <ul class="tip-list">
+              <li>• Elimina bacterias dejando una fragancia fresca persistente.</li>
+              <li>• Ideal para escuelas, clínicas, locales y hogares con mascotas.</li>
+            </ul>
+          </div>
+          <div class="tip-footer-brand">Desinfectante 5L</div>
+        </div>
+
+        <div class="tip-card c-charcoal">
+          <div>
+            <div class="tip-num">PACKS</div>
+            <h3>Combos ahorro mayorista</h3>
+            <ul class="tip-list">
+              <li>• Combiná bidones de 5L + botellas de uso diario en un mismo envío.</li>
+              <li>• Consultá bonificaciones por volumen para comercios.</li>
+            </ul>
+          </div>
+          <div class="tip-footer-brand">Feragu Distribuciones</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MULTIRRUBRO SECTION ================= -->
+  <section class="multirrubro-section" id="multirrubro">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-kicker">Respaldo Integral • Empresa Multirrubro</span>
+        <h2>Más rubros para abastecer tu día a día</h2>
+        <div class="section-line"></div>
+        <p>Además de fabricar nuestra línea propia <strong>Feragu Limpieza</strong>, en Feragu Distribuciones contamos con catálogos dedicados a otros rubros clave. Ingresá a cada galería para explorar sus productos.</p>
+      </div>
+
+      <div class="multi-banner-own">
+        <div>
+          <span class="multi-tag own">Núcleo Principal • Fabricación Propia</span>
+          <h3 style="font-size: 1.15rem; font-weight: 800; color: var(--charcoal); margin-bottom: 0.25rem;">Línea Feragu Limpieza</h3>
+          <p style="font-size: 0.9rem; color: var(--muted);">Detergentes, desinfectantes, lavavajillas y limpiadores multiuso concentrados elaborados por Feragu.</p>
+        </div>
+        <a href="#productos" class="btn-secondary" style="white-space: nowrap;">Volver arriba al catálogo de limpieza</a>
+      </div>
+
+      <div class="multi-grid">
+        <!-- Rubro 1: Envases y Plásticos (Rojo) -->
+        <article class="rubro-card rubro-envases">
+          <div>
+            <div class="rubro-top-row">
+              <div class="rubro-icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="7" width="18" height="13" rx="2"/>
+                  <path d="M2 7h20"/>
+                  <path d="M8 11h8"/>
+                </svg>
+              </div>
+              <span class="multi-tag tag-red">Envases y Plásticos</span>
+            </div>
+            <h3>Envases y Plásticos</h3>
+            <p>Tuppers herméticos, potes, contenedores organizadores y envases plásticos resistentes para el hogar, comercios y gastronomía.</p>
+            <ul class="rubro-highlights">
+              <li>• Tuppers herméticos y organizadores</li>
+              <li>• Potes y contenedores multiuso</li>
+              <li>• Venta por unidad y pack mayorista</li>
+            </ul>
+          </div>
+          <a href="envases-plasticos.html" class="rubro-link-btn">
+            <span>Ver galería de envases</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- Rubro 2: Congelados (Celeste) -->
+        <article class="rubro-card rubro-congelados">
+          <div>
+            <div class="rubro-top-row">
+              <div class="rubro-icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="12" y1="2" x2="12" y2="22"/>
+                  <path d="M20 16l-4-4 4-4"/>
+                  <path d="M4 8l4 4-4 4"/>
+                  <path d="M16 4l-4 4-4-4"/>
+                  <path d="M8 20l4-4 4 4"/>
+                </svg>
+              </div>
+              <span class="multi-tag tag-sky">Congelados</span>
+            </div>
+            <h3>Congelados</h3>
+            <p>Productos congelados de alta rotación para resolver comidas diarias y abastecer almacenes, rotiserías y locales gastronómicos.</p>
+            <ul class="rubro-highlights">
+              <li>• Cortes, rebozados y soluciones prácticas</li>
+              <li>• Bolsas familiares y formatos comerciales</li>
+              <li>• Reposición rápida con cadena de frío</li>
+            </ul>
+          </div>
+          <a href="congelados.html" class="rubro-link-btn">
+            <span>Ver galería de congelados</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- Rubro 3: Bebidas / Principalmente Cervezas (Anaranjado) -->
+        <article class="rubro-card rubro-bebidas">
+          <div>
+            <div class="rubro-top-row">
+              <div class="rubro-icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
+                  <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V8z"/>
+                  <line x1="6" y1="2" x2="6" y2="4"/>
+                  <line x1="10" y1="2" x2="10" y2="4"/>
+                  <line x1="14" y1="2" x2="14" y2="4"/>
+                </svg>
+              </div>
+              <span class="multi-tag tag-orange">Bebidas • Cervezas</span>
+            </div>
+            <h3>Bebidas</h3>
+            <p>Especialidad principalmente en cervezas en distintos formatos y presentaciones, junto con opciones refrescantes para comercios y eventos.</p>
+            <ul class="rubro-highlights">
+              <li>• Variedad de cervezas en latas y botellas</li>
+              <li>• Packs cerrados y cajones para reposición</li>
+              <li>• Sumalos directo a tu pedido general</li>
+            </ul>
+          </div>
+          <a href="bebidas.html" class="rubro-link-btn">
+            <span>Ver galería de bebidas</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- Rubro 4: Alimentos y Conservas (Verde) -->
+        <article class="rubro-card rubro-alimentos">
+          <div>
+            <div class="rubro-top-row">
+              <div class="rubro-icon-box" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/>
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+                </svg>
+              </div>
+              <span class="multi-tag tag-green">Alimentos y Conservas</span>
+            </div>
+            <h3>Alimentos y Conservas</h3>
+            <p>Conservas, envasados y productos alimenticios de despensa pensados para abastecer hogares, almacenes y cocinas comerciales.</p>
+            <ul class="rubro-highlights">
+              <li>• Conservas vegetales, salsas y envasados</li>
+              <li>• Productos de despensa de alta rotación</li>
+              <li>• Presentaciones hogar y mayorista</li>
+            </ul>
+          </div>
+          <a href="alimentos-conservas.html" class="rubro-link-btn">
+            <span>Ver galería de alimentos</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT & QUOTE SECTION ================= -->
+  <section class="contact-section" id="contacto">
+    <div class="container contact-grid">
+      <div class="contact-info-card">
+        <span class="section-kicker">¿Hablamos?</span>
+        <h2 style="font-size: 1.8rem; text-transform: uppercase; margin-bottom: 0.65rem;">Estamos para ayudarte a equipar tus espacios</h2>
+        <div class="section-line"></div>
+        <p style="color: var(--muted); font-size: 0.95rem;">
+          Ya sea para abastecer tu hogar, reponer stock en tu comercio o solicitar cotización por volumen de nuestra línea <strong>Feragu Limpieza</strong>, <strong>envases y plásticos</strong>, <strong>congelados</strong>, <strong>bebidas</strong> o <strong>alimentos y conservas</strong>, escribinos directamente.
+        </p>
+
+        <div class="channel-pills">
+          <span class="channel-pill">✓ Venta Minorista</span>
+          <span class="channel-pill">✓ Venta Mayorista</span>
+          <span class="channel-pill">✓ Empresas e Instituciones</span>
+          <span class="channel-pill">✓ Revendedores</span>
+        </div>
+
+        <div style="background: var(--surface); padding: 1.05rem; border-radius: 14px; border: 1px solid var(--border); display: flex; flex-direction: column; gap: 0.55rem; font-size: 0.88rem;">
+          <div><strong>Fabricación Propia:</strong> Línea Feragu Limpieza (5L, 750ml y 500ml)</div>
+          <div><strong>Rubros Complementarios:</strong> Envases y plásticos, congelados, bebidas y alimentos y conservas</div>
+          <div><strong>Respuesta rápida:</strong> Atención directa por WhatsApp</div>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="clientName">Nombre o Empresa *</label>
+            <input type="text" id="clientName" required placeholder="Ej: María Pérez / Autoservicio Sur" />
+          </div>
+          <div class="form-group">
+            <label for="clientType">Tipo de cliente</label>
+            <select id="clientType">
+              <option value="Hogar / Consumo Final">Hogar / Consumo Final</option>
+              <option value="Comercio / Revendedor">Comercio / Revendedor</option>
+              <option value="Empresa / Institución">Empresa / Institución</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="clientInterest">Interés principal</label>
+          <select id="clientInterest">
+            <option value="Línea Feragu Limpieza (Fabricación Propia)">Línea Feragu Limpieza (Fabricación Propia)</option>
+            <option value="Envases y Plásticos">Envases y Plásticos</option>
+            <option value="Congelados">Congelados</option>
+            <option value="Bebidas (Cervezas y afines)">Bebidas (Cervezas y afines)</option>
+            <option value="Alimentos y Conservas">Alimentos y Conservas</option>
+            <option value="Pedido combinado multirrubro">Pedido combinado multirrubro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="clientMessage">Detalle de tu consulta o pedido</label>
+          <textarea id="clientMessage" rows="3" placeholder="Contanos qué productos necesitás o si querés recibir el catálogo con precios..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-whatsapp-submit">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          Enviar consulta por WhatsApp
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand-block">
+        <div class="footer-logo-box">
+          <img src="img/logo_feragu.png" alt="Logo Feragu Distribuciones" />
+        </div>
+        <p class="footer-copy">
+          Feragu Limpieza: fabricación propia dentro de Feragu Distribuciones, junto a nuestras líneas de envases y plásticos, congelados, bebidas y alimentos y conservas.
+        </p>
+      </div>
+
+      <a href="#contacto" class="footer-cta">
+        <span class="wa-circle">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </span>
+        <div class="footer-cta-text">
+          <strong>¿HABLAMOS?</strong>
+          <span>Estamos para ayudarte con tu pedido.</span>
+        </div>
+      </a>
+    </div>
+    <div class="footer-bottom">
+      © <span id="yearSpan"></span> Feragu Distribuciones • Línea Feragu Limpieza (Fabricación Propia). Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <!-- ================= QUOTE DRAWER ================= -->
+  <div class="drawer-backdrop" id="backdrop"></div>
+
+  <aside class="quote-drawer" id="quoteDrawer" aria-label="Lista de pedido">
+    <div class="drawer-header">
+      <div>
+        <h3 style="font-size: 1.1rem; font-weight: 800;">Tu Lista de Cotización</h3>
+        <span style="font-size: 0.78rem; color: var(--muted);">Pedido unificado Feragu Distribuciones</span>
+      </div>
+      <button id="closeDrawerBtn" aria-label="Cerrar panel" style="font-size: 1.4rem; padding: 0.25rem 0.5rem;">✕</button>
+    </div>
+
+    <div class="drawer-body" id="drawerBody">
+      <!-- Renderizado por JS -->
+    </div>
+
+    <div class="drawer-footer">
+      <button class="btn-whatsapp-submit" id="sendOrderWaBtn">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        Solicitar cotización por WhatsApp
+      </button>
+      <button id="clearQuoteBtn" style="font-size: 0.8rem; color: var(--muted); text-decoration: underline; padding: 0.25rem;">
+        Vaciar lista
+      </button>
+    </div>
+  </aside>
+
+  <!-- ================= PRODUCT TECHNICAL SHEET MODAL (CON CARRUSEL) ================= -->
+  <div class="modal-box" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem;">
+      <div>
+        <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+          <span id="modalCounter" style="padding: 0.16rem 0.5rem; border-radius: 6px; background: var(--charcoal); color: #fff; font-size: 0.7rem; font-weight: 800;">1 / 4</span>
+          <span id="modalKicker" style="font-size: 0.74rem; font-weight: 800; color: var(--green); text-transform: uppercase; letter-spacing: 0.08em;"></span>
+        </div>
+        <h3 id="modalTitle" style="font-size: 1.32rem; font-weight: 900; margin-top: 0.3rem;"></h3>
+      </div>
+      <button id="closeModalBtn" aria-label="Cerrar ficha técnica" style="font-size: 1.35rem; color: var(--muted); padding: 0.15rem 0.4rem;">✕</button>
+    </div>
+
+    <div id="modalContent" style="font-size: 0.92rem; color: var(--muted); display: flex; flex-direction: column; gap: 0.85rem;"></div>
+
+    <div style="margin-top: 1.35rem; display: flex; gap: 0.75rem; justify-content: space-between; align-items: center; flex-wrap: wrap;">
+      <div style="display: flex; gap: 0.45rem;">
+        <button type="button" class="btn-detail" id="modalPrevTextBtn" aria-label="Producto anterior">← Anterior</button>
+        <button type="button" class="btn-detail" id="modalNextTextBtn" aria-label="Producto siguiente">Siguiente →</button>
+      </div>
+      <div style="display: flex; gap: 0.65rem;">
+        <button type="button" class="btn-detail" id="closeModalSecondary">Cerrar</button>
+        <button type="button" class="btn-add-quote" id="modalAddBtn">+ Agregar a mi pedido</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ================= PRODUCT DATA =================
+    const WHATSAPP_NUMBER = "59899000000";
+
+    const PRODUCTS = [
+      {
+        id: "detergente-5l",
+        name: "Limpiador Detergente Multiusos",
+        size: "5L",
+        category: "bidon",
+        aroma: "Aroma Pino • Fórmula Bio",
+        badge: "Bidón Rendidor",
+        shortDesc: "Limpieza profunda y frescura natural para pisos, superficies lavables y áreas de alto tránsito.",
+        benefits: ["Rinde hasta 100 litros diluido", "Secado rápido sin vetas", "Ideal hogares y comercios"],
+        dilution: "Diluir 250 ml (1 taza) en un balde con 5 litros de agua. Para suciedad rebelde aplicar directo con paño húmedo.",
+        surfaces: "Pisos cerámicos, porcelanato, mosaicos, patios, mesadas y azulejos.",
+        image: "img/limpiador_detergente_multiuso.jpg"
+      },
+      {
+        id: "desinfectante-5l",
+        name: "Limpiador Desinfectante Concentrado",
+        size: "5L",
+        category: "bidon",
+        aroma: "Aroma Floral Intenso",
+        badge: "Elimina 99,9%",
+        shortDesc: "Higiene total y desinfección prolongada que neutraliza olores y protege cada ambiente.",
+        benefits: ["Elimina el 99,9% de bacterias", "Fragancia floral duradera", "Apto uso institucional y hogar"],
+        dilution: "Para desinfección profunda: diluir 1 parte en 10 de agua y dejar actuar 5 minutos. Mantenimiento diario: 1 en 20.",
+        surfaces: "Baños, sanitarios, cocinas, consultorios, escuelas y áreas con mascotas.",
+        image: "img/limpiador_desinfectante_concentrado.jpg"
+      },
+      {
+        id: "multiuso-500ml",
+        name: "Limpiador Multiuso Concentrado",
+        size: "500ml",
+        category: "uso-diario",
+        aroma: "Frescura Activa",
+        badge: "Práctico y Eficaz",
+        shortDesc: "Limpieza profunda y brillo inmediato en un formato ágil para la rutina diaria de todo el hogar.",
+        benefits: ["Máxima limpieza y brillo", "No deja residuos opacos", "Rinde más por aplicación"],
+        dilution: "Listo para usar con paño o pulverizador sobre superficies; también diluir 2 tapas en 2 litros de agua.",
+        surfaces: "Mesadas, electrodomésticos, muebles lavables, picaportes, vidrios y plásticos.",
+        image: "img/limpiador_multiuso_concentrado.jpg"
+      },
+      {
+        id: "lavavajilla-750ml",
+        name: "Lavavajilla Concentrado",
+        size: "750ml",
+        category: "cocina",
+        aroma: "Aroma Limón • Fórmula Bio",
+        badge: "Alto Desengrase",
+        shortDesc: "Máxima efectividad desengrasante con espuma activa persistente que cuida tus manos.",
+        benefits: ["Corta la grasa al instante", "Más espuma y máximo brillo", "Fórmula suave con la piel"],
+        dilution: "Aplicar unas gotas directamente sobre la esponja húmeda. Rinde hasta 3 veces más que un lavavajilla común.",
+        surfaces: "Vajilla, cristalería, ollas, sartenes, utensilios y mesadas de acero inoxidable.",
+        image: "img/lavavajilla_concentrado.jpg"
+      }
+    ];
+
+    // ================= STATE =================
+    let quoteCart = JSON.parse(localStorage.getItem("feragu_quote_cart") || "[]");
+    let currentFilter = "all";
+    let searchTerm = "";
+    let activeModalIndex = 0;
+
+    // ================= DOM ELEMENTS =================
+    const productsGrid = document.getElementById("productsGrid");
+    const quoteCountEl = document.getElementById("quoteCount");
+    const drawerBody = document.getElementById("drawerBody");
+    const quoteDrawer = document.getElementById("quoteDrawer");
+    const backdrop = document.getElementById("backdrop");
+    const productModal = document.getElementById("productModal");
+    const toastEl = document.getElementById("toast");
+
+    // ================= RENDER PRODUCTS =================
+    function renderProducts() {
+      const filtered = PRODUCTS.filter(p => {
+        const matchesCat = currentFilter === "all" || p.category === currentFilter;
+        const q = searchTerm.toLowerCase().trim();
+        const matchesQuery = !q ||
+          p.name.toLowerCase().includes(q) ||
+          p.shortDesc.toLowerCase().includes(q) ||
+          p.aroma.toLowerCase().includes(q);
+        return matchesCat && matchesQuery;
+      });
+
+      if (filtered.length === 0) {
+        productsGrid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 3rem 1rem; background: #fff; border-radius: 16px; border: 1px solid var(--border);">
+            <p style="font-weight: 700; color: var(--charcoal); margin-bottom: 0.4rem;">No encontramos productos con ese criterio</p>
+            <p style="font-size: 0.88rem; color: var(--muted);">Probá limpiando el buscador o seleccionando otra categoría.</p>
+          </div>
+        `;
+        return;
+      }
+
+      productsGrid.innerHTML = filtered.map(p => {
+        const inCart = quoteCart.find(item => item.id === p.id);
+        return `
+          <article class="product-card">
+            <div class="product-visual" data-detail="${p.id}" title="Click para ver ficha técnica">
+              <span class="product-badge-top">${p.badge}</span>
+              <span class="product-size-tag">${p.size}</span>
+              <img src="${p.image}" alt="${p.name} ${p.size}" loading="lazy" />
+            </div>
+            <div class="product-body">
+              <div class="product-aroma">${p.aroma}</div>
+              <h3>${p.name}</h3>
+              <p class="product-desc">${p.shortDesc}</p>
+              <ul class="product-benefits">
+                ${p.benefits.map(b => `<li>${b}</li>`).join("")}
+              </ul>
+              <div class="product-actions">
+                <button class="btn-add-quote ${inCart ? 'added' : ''}" data-add="${p.id}">
+                  ${inCart ? `✓ En pedido (${inCart.qty})` : '+ Agregar'}
+                </button>
+                <button class="btn-detail" data-detail="${p.id}">Ficha</button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    // ================= QUOTE CART LOGIC =================
+    function saveCart() {
+      localStorage.setItem("feragu_quote_cart", JSON.stringify(quoteCart));
+      updateCartUI();
+      renderProducts();
+    }
+
+    function addToQuote(productId) {
+      const prod = PRODUCTS.find(p => p.id === productId);
+      if (!prod) return;
+      const existing = quoteCart.find(i => i.id === productId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        quoteCart.push({ id: prod.id, name: prod.name, size: prod.size, qty: 1 });
+      }
+      saveCart();
+      showToast(`Agregado: ${prod.name} (${prod.size})`);
+    }
+
+    function changeQty(productId, delta) {
+      const idx = quoteCart.findIndex(i => i.id === productId);
+      if (idx === -1) return;
+      quoteCart[idx].qty += delta;
+      if (quoteCart[idx].qty <= 0) {
+        quoteCart.splice(idx, 1);
+      }
+      saveCart();
+    }
+
+    function updateCartUI() {
+      const totalItems = quoteCart.reduce((acc, item) => acc + item.qty, 0);
+      quoteCountEl.textContent = totalItems;
+
+      if (quoteCart.length === 0) {
+        drawerBody.innerHTML = `
+          <div style="text-align: center; padding: 3rem 1rem; color: var(--muted);">
+            <p style="font-weight: 700; color: var(--charcoal); margin-bottom: 0.4rem;">Tu lista está vacía</p>
+            <p style="font-size: 0.86rem;">Agregá productos desde cualquier galería de Feragu Distribuciones para armar tu cotización.</p>
+          </div>
+        `;
+        return;
+      }
+
+      drawerBody.innerHTML = quoteCart.map(item => `
+        <div class="quote-item">
+          <div>
+            <strong style="display: block; font-size: 0.9rem; color: var(--charcoal);">${item.name}</strong>
+            <span style="font-size: 0.78rem; color: var(--green); font-weight: 700;">Presentación: ${item.size}</span>
+          </div>
+          <div class="qty-controls">
+            <button onclick="changeQty('${item.id}', -1)" aria-label="Restar">−</button>
+            <span style="font-weight: 700; font-size: 0.88rem; min-width: 18px; text-align: center;">${item.qty}</span>
+            <button onclick="changeQty('${item.id}', 1)" aria-label="Sumar">+</button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    // ================= MODAL CAROUSEL & DRAWER CONTROLS =================
+    function openDrawer() {
+      quoteDrawer.classList.add("open");
+      backdrop.classList.add("open");
+    }
+
+    function closeAllOverlays() {
+      quoteDrawer.classList.remove("open");
+      productModal.classList.remove("open");
+      backdrop.classList.remove("open");
+    }
+
+    function renderModalByIndex(index) {
+      const total = PRODUCTS.length;
+      activeModalIndex = ((index % total) + total) % total;
+      const p = PRODUCTS[activeModalIndex];
+
+      document.getElementById("modalCounter").textContent = `${activeModalIndex + 1} / ${total}`;
+      document.getElementById("modalKicker").textContent = `${p.aroma} • Presentación ${p.size}`;
+      document.getElementById("modalTitle").textContent = p.name;
+
+      document.getElementById("modalContent").innerHTML = `
+        <div>
+          <div class="modal-stage">
+            <button type="button" class="modal-nav-arrow prev" id="modalStagePrev" aria-label="Producto anterior">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"/>
+              </svg>
+            </button>
+            <img src="${p.image}" alt="${p.name} ${p.size}" />
+            <button type="button" class="modal-nav-arrow next" id="modalStageNext" aria-label="Producto siguiente">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </button>
+          </div>
+          <div class="modal-dots" aria-label="Seleccionar producto">
+            ${PRODUCTS.map((item, idx) => `
+              <button type="button" class="modal-dot ${idx === activeModalIndex ? 'active' : ''}" data-modal-dot="${idx}" aria-label="Ver ${item.name}"></button>
+            `).join("")}
+          </div>
+        </div>
+
+        <p style="color: var(--ink);">${p.shortDesc}</p>
+
+        <div style="background: var(--green-soft); padding: 0.85rem 1rem; border-radius: 12px; color: var(--charcoal);">
+          <strong style="display: block; font-size: 0.8rem; text-transform: uppercase; color: var(--green-dark); margin-bottom: 0.2rem;">Modo de uso y dilución</strong>
+          <span>${p.dilution}</span>
+        </div>
+
+        <div style="background: var(--bg); padding: 0.85rem 1rem; border-radius: 12px; color: var(--charcoal);">
+          <strong style="display: block; font-size: 0.8rem; text-transform: uppercase; color: var(--muted); margin-bottom: 0.2rem;">Superficies recomendadas</strong>
+          <span>${p.surfaces}</span>
+        </div>
+      `;
+
+      document.getElementById("modalStagePrev").addEventListener("click", () => renderModalByIndex(activeModalIndex - 1));
+      document.getElementById("modalStageNext").addEventListener("click", () => renderModalByIndex(activeModalIndex + 1));
+      document.querySelectorAll("[data-modal-dot]").forEach(dot => {
+        dot.addEventListener("click", () => renderModalByIndex(Number(dot.dataset.modalDot)));
+      });
+    }
+
+    function openProductModalByIndex(index = 0) {
+      renderModalByIndex(index);
+      productModal.classList.add("open");
+      backdrop.classList.add("open");
+    }
+
+    function openProductModal(productId) {
+      const idx = PRODUCTS.findIndex(item => item.id === productId);
+      openProductModalByIndex(idx >= 0 ? idx : 0);
+    }
+
+    function showToast(msg) {
+      toastEl.textContent = msg;
+      toastEl.classList.add("show");
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => toastEl.classList.remove("show"), 2400);
+    }
+
+    // ================= YIELD CALCULATOR =================
+    const calcData = {
+      detergente: {
+        unitLiters: 5,
+        factor: 20,
+        note: "Dilución recomendada: 1 parte de producto cada 19 partes de agua para limpieza profunda de pisos y superficies.",
+        summary: "De solución limpiadora lista para usar en pisos, baños y superficies."
+      },
+      desinfectante: {
+        unitLiters: 5,
+        factor: 15,
+        note: "Dilución recomendada: 1 parte en 14 de agua para desinfección efectiva y aroma floral persistente.",
+        summary: "De solución desinfectante de amplio espectro para ambientes seguros."
+      },
+      multiuso: {
+        unitLiters: 0.5,
+        factor: 12,
+        note: "Dilución recomendada: 2 tapas en 2 litros de agua para repaso diario o directo con pulverizador.",
+        summary: "De solución multiuso brillante sin residuos opacos."
+      },
+      lavavajilla: {
+        unitLiters: 0.75,
+        factor: 4,
+        note: "Fórmula ultra concentrada: rinde hasta 4 veces más lavados que un detergente convencional.",
+        summary: "Equivalentes de lavado desengrasante con espuma activa."
+      }
+    };
+
+    function updateCalculator() {
+      const key = document.getElementById("calcProduct").value;
+      const qty = parseInt(document.getElementById("calcQty").value, 10);
+      const info = calcData[key];
+
+      const pureLiters = +(info.unitLiters * qty).toFixed(2);
+      const totalLiters = Math.round(pureLiters * info.factor);
+
+      document.getElementById("calcQtyLabel").textContent = `${qty} ${qty === 1 ? 'envase' : 'envases'}`;
+      document.getElementById("calcTotalLiters").textContent = `${totalLiters} Litros`;
+      document.getElementById("calcSummaryText").textContent = info.summary;
+      document.getElementById("calcConcentrateVol").textContent = `${pureLiters} L`;
+      document.getElementById("calcBottlesSaved").textContent = `~${totalLiters} bot.`;
+      document.getElementById("calcDilutionNote").textContent = info.note;
+    }
+
+    // ================= EVENT LISTENERS =================
+    document.addEventListener("click", e => {
+      const addBtn = e.target.closest("[data-add]");
+      if (addBtn) {
+        addToQuote(addBtn.dataset.add);
+        return;
+      }
+      const detBtn = e.target.closest("[data-detail]");
+      if (detBtn) {
+        openProductModal(detBtn.dataset.detail);
+        return;
+      }
+      const filterBtn = e.target.closest(".filter-btn");
+      if (filterBtn) {
+        document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+        filterBtn.classList.add("active");
+        currentFilter = filterBtn.dataset.filter;
+        renderProducts();
+      }
+    });
+
+    document.getElementById("heroExhibitionBtn").addEventListener("click", () => {
+      openProductModalByIndex(0);
+    });
+
+    document.getElementById("modalPrevTextBtn").addEventListener("click", () => {
+      renderModalByIndex(activeModalIndex - 1);
+    });
+    document.getElementById("modalNextTextBtn").addEventListener("click", () => {
+      renderModalByIndex(activeModalIndex + 1);
+    });
+
+    document.addEventListener("keydown", e => {
+      if (!productModal.classList.contains("open")) return;
+      if (e.key === "ArrowLeft") renderModalByIndex(activeModalIndex - 1);
+      if (e.key === "ArrowRight") renderModalByIndex(activeModalIndex + 1);
+      if (e.key === "Escape") closeAllOverlays();
+    });
+
+    document.getElementById("productSearch").addEventListener("input", e => {
+      searchTerm = e.target.value;
+      renderProducts();
+    });
+
+    document.getElementById("openDrawerBtn").addEventListener("click", openDrawer);
+    document.getElementById("closeDrawerBtn").addEventListener("click", closeAllOverlays);
+    document.getElementById("closeModalBtn").addEventListener("click", closeAllOverlays);
+    document.getElementById("closeModalSecondary").addEventListener("click", closeAllOverlays);
+    backdrop.addEventListener("click", closeAllOverlays);
+
+    document.getElementById("modalAddBtn").addEventListener("click", () => {
+      const currentProduct = PRODUCTS[activeModalIndex];
+      if (currentProduct) {
+        addToQuote(currentProduct.id);
+      }
+    });
+
+    document.getElementById("clearQuoteBtn").addEventListener("click", () => {
+      quoteCart = [];
+      saveCart();
+    });
+
+    document.getElementById("sendOrderWaBtn").addEventListener("click", () => {
+      let text = "Hola Feragu Distribuciones! Me gustaría cotizar los siguientes productos:\n\n";
+      if (quoteCart.length === 0) {
+        text = "Hola Feragu Distribuciones! Quisiera recibir información y lista de precios.";
+      } else {
+        quoteCart.forEach(i => {
+          text += `• ${i.name} (${i.size}) x ${i.qty} un.\n`;
+        });
+        text += "\nQuedo a la espera de disponibilidad y precios. ¡Gracias!";
+      }
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
+    });
+
+    document.getElementById("contactForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const name = document.getElementById("clientName").value.trim();
+      const type = document.getElementById("clientType").value;
+      const interest = document.getElementById("clientInterest").value;
+      const msg = document.getElementById("clientMessage").value.trim();
+
+      let fullText = `Hola Feragu Distribuciones! Soy *${name}* (${type}).\n*Interés:* ${interest}`;
+      if (msg) fullText += `\n*Consulta:* ${msg}`;
+      if (quoteCart.length > 0) {
+        fullText += `\n\n*Productos seleccionados en mi lista:*\n` +
+          quoteCart.map(i => `• ${i.name} (${i.size}) x ${i.qty}`).join("\n");
+      }
+
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(fullText)}`, "_blank", "noopener");
+    });
+
+    document.getElementById("calcProduct").addEventListener("change", updateCalculator);
+    document.getElementById("calcQty").addEventListener("input", updateCalculator);
+
+    // Mobile Menu & Dropdown Toggle
+    const mobileToggle = document.getElementById("mobileToggle");
+    const mobileMenu = document.getElementById("mobileMenu");
+    const mobileProductsToggle = document.getElementById("mobileProductsToggle");
+    const mobileProductsSubmenu = document.getElementById("mobileProductsSubmenu");
+    const mobileChevron = document.getElementById("mobileChevron");
+
+    mobileToggle.addEventListener("click", () => {
+      mobileMenu.classList.toggle("open");
+    });
+
+    mobileProductsToggle.addEventListener("click", () => {
+      const isOpen = mobileProductsSubmenu.classList.toggle("open");
+      mobileProductsToggle.setAttribute("aria-expanded", String(isOpen));
+      mobileChevron.style.transform = isOpen ? "rotate(180deg)" : "rotate(0deg)";
+    });
+
+    document.querySelectorAll(".mobile-link").forEach(link => {
+      link.addEventListener("click", () => mobileMenu.classList.remove("open"));
+    });
+
+    // Navbar scroll effect
+    window.addEventListener("scroll", () => {
+      document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 20);
+    }, { passive: true });
+
+    // Init
+    document.getElementById("yearSpan").textContent = new Date().getFullYear();
+    renderProducts();
+    updateCartUI();
+    updateCalculator();
+  </script>
+</body>
+</html>
