@@ -416,11 +416,31 @@
       }
     }
 
+    /* ================= FULL-SCREEN SITE COVER ================= */
+    .full-cover {
+      position: relative;
+      width: 100%;
+      min-height: calc(100svh - 72px);
+      margin-top: 72px;
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+      background: #E8ECEA;
+    }
+
+    .full-cover img {
+      width: 100%;
+      min-height: calc(100svh - 72px);
+      max-width: none;
+      object-fit: cover;
+      object-position: center;
+    }
+
     /* ================= HERO SECTION ================= */
     .hero {
       position: relative;
-      padding-top: 5.75rem;
-      padding-bottom: 3rem;
+      padding-top: 2.5rem;
+      padding-bottom: 2.85rem;
       scroll-margin-top: 72px;
       background:
         radial-gradient(circle at 88% 18%, rgba(105, 156, 59, 0.13) 0%, transparent 42%),
@@ -438,8 +458,8 @@
 
     @media (min-width: 960px) {
       .hero {
-        padding-top: 6.25rem;
-        padding-bottom: 3.5rem;
+        padding-top: 3rem;
+        padding-bottom: 3.25rem;
       }
       .hero-grid {
         grid-template-columns: 1.05fr 0.95fr;
@@ -1423,7 +1443,6 @@
       box-shadow: var(--shadow-md);
     }
 
-    /* Rubro 1: Envases y Plásticos -> Rojo */
     .rubro-card.rubro-envases {
       border-top: 4px solid var(--red);
     }
@@ -1438,7 +1457,6 @@
       background: var(--red);
     }
 
-    /* Rubro 2: Congelados -> Celeste */
     .rubro-card.rubro-congelados {
       border-top: 4px solid var(--sky);
     }
@@ -1453,7 +1471,6 @@
       background: var(--sky-dark);
     }
 
-    /* Rubro 3: Bebidas (principalmente cervezas) -> Anaranjado */
     .rubro-card.rubro-bebidas {
       border-top: 4px solid var(--orange);
     }
@@ -1468,7 +1485,6 @@
       background: var(--orange-dark);
     }
 
-    /* Rubro 4: Alimentos y Conservas -> Verde */
     .rubro-card.rubro-alimentos {
       border-top: 4px solid var(--green);
     }
@@ -1895,7 +1911,6 @@
       gap: 0.65rem;
     }
 
-    /* Product Technical Sheet Carousel Modal */
     .modal-box {
       position: fixed;
       top: 50%;
@@ -2023,7 +2038,7 @@
   <!-- ================= NAVBAR ================= -->
   <header class="navbar" id="navbar">
     <div class="container nav-inner">
-      <a href="#inicio" class="brand-lockup" aria-label="Feragu Distribuciones Inicio">
+      <a href="#portada" class="brand-lockup" aria-label="Feragu Distribuciones Inicio">
         <img src="img/logo_feragu.png" alt="Logo Feragu Distribuciones" class="brand-logo-img" />
         <div class="brand-divider"></div>
         <div class="brand-sub">
@@ -2102,6 +2117,14 @@
       <a href="#contacto" class="mobile-link">Contacto</a>
     </div>
   </header>
+
+  <!-- ================= PORTADA A PANTALLA COMPLETA ================= -->
+  <div class="full-cover" id="portada">
+    <img
+      src="img/portada_del_sitio.png"
+      alt="Portada Feragu Limpieza — Efectividad que se ve, cuida tu hogar, cuida lo que importa"
+    />
+  </div>
 
   <!-- ================= HERO SECTION ================= -->
   <section class="hero" id="inicio">
